@@ -1,0 +1,25 @@
+﻿@model IRuleExpression
+
+@{
+    var metadata = Model.Descriptor.Metadata;
+    var id = "rule-value-" + Model.Id;
+    var min = metadata.Get("min") as float?;
+    var max = metadata.Get("max") as float?;
+    var step = metadata.Get("step") as float?;
+
+    var value = Model.Value != null
+        ? Convert.ToSingle(Model.Value, System.Globalization.CultureInfo.InvariantCulture)
+        : (float?)null;
+}
+
+@* TODO: (mg) (core) Use NumericInput once available *@
+@*INFO: onRuleValueChanged (enables save button) called by handler in smartstore.rules.js.*@
+<div class="numberinput-group flex-grow-1">
+    <input id="@id" name="@id"
+           value="@value"
+           class="form-control"
+           placeholder="@T("Common.EnterValue").Value"
+           min="@min"
+           max="@max"
+           step="@(step ?? 1)" />
+</div>

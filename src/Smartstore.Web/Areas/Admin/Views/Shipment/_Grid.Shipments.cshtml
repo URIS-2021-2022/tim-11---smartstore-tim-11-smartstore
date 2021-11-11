@@ -1,0 +1,86 @@
+﻿@model ShipmentModel
+
+@{
+    var parentModel = ViewData["Parent"] as ShipmentListModel;
+    var displayPdfPackagingSlip = (bool)ViewBag.DisplayPdfPackagingSlip;
+}
+
+<datagrid id="shipments-grid"
+          allow-resize="true"
+          allow-row-selection="true"
+          preserve-grid-state="true" preserve-command-state="true"
+          allow-column-reordering="true">
+    <datasource read="@Url.Action("ShipmentList")" />
+    <paging position="Bottom" show-size-chooser="true" />
+    <sorting allow-unsort="true" allow-multisort="false">
+        <sort by="CreatedOn" by-entity-member="CreatedOnUtc" descending="true" />
+    </sorting>
+    <toolbar>
+        <toolbar-group>
+            <button datagrid-action="DataGridToolAction.ToggleSearchPanel" type="button" class="btn btn-light btn-icon">
+                <i class="fa fa-fw fa-filter"></i>
+            </button>
+        </toolbar-group>
+        @if (displayPdfPackagingSlip)
+        {
+            <toolbar-group class="dropdown">
+                <button type="button" class="btn btn-flat btn-light dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-print"></i>
+                    <span>Drucken</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a id="packaging-slip-all" class="dropdown-item" href="javascript:;">
+                        @T("Admin.Orders.Shipments.PrintPackagingSlip.All")
+                    </a>
+                    <a id="packaging-slip-selected" class="dropdown-item" href="javascript:;" v-bind:class="{ 'disabled': !grid.hasSelection }">
+                        @T("Admin.Orders.Shipments.PrintPackagingSlip.Selected")
+                    </a>
+                </div>
+            </toolbar-group>
+        }
+        <zone name="datagrid_toolbar_after"></zone>
+    </toolbar>
+    <search-panel>
+        <partial name="_Grid.Shipments.Search" model="parentModel" />
+    </search-panel>
+    <columns>
+        <column for="Id" halign="center" visible="false" type="string" />
+        <column for="OrderId" hideable="false">
+            <display-template>
+                <a :href="item.row.OrderEditUrl" class="text-truncate">{{ item.value }}</a>
+            </display-template>
+        </column>
+        <column for="TrackingNumber" />
+        <column for="TrackingUrl" visible="false" />
+        <column for="TotalWeightString" entity-member="TotalWeight" />
+        <column for="ShippedDate" entity-member="ShippedDateUtc" />
+        <column for="DeliveryDate" entity-member="DeliveryDateUtc" />
+        <column for="ShippingMethod" visible="false" entity-member="Order.ShippingMethod" />
+        <column for="CreatedOn" entity-member="CreatedOnUtc" />
+    </columns>
+    <row-commands>
+        <a datarow-action="DataRowAction.Custom" :href="item.row.EditUrl">@T("Common.Edit")</a>
+    </row-commands>
+</datagrid>
+
+<script sm-target-zone="scripts" data-origin="shipments-grid">
+    $(function () {
+        // Print packaging slip.
+        $('#packaging-slip-all, #packaging-slip-selected').on('click', function () {
+            var btn = $(this);
+
+            const grid = $('#shipments-grid').parent().data('datagrid');
+            var selectedIds = grid.selectedRowKeys;
+            var url = '@Url.Action("PdfPackagingSlips", "Shipment", new { area = "Admin" })';
+
+            if (btn.attr('id') === 'packaging-slip-all') {
+                url += '?all=true';
+            }
+
+            $({}).postData({
+                url: url,
+                data: { selectedIds }
+    		});
+        });
+    });
+</script>
