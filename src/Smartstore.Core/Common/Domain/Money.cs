@@ -164,7 +164,7 @@ namespace Smartstore.Core.Common
 
         int IComparable.CompareTo(object obj)
         {
-            if (obj == null || obj is not Money other)
+            if ( obj is not Money other)
                 return 1;
 
             return CompareTo(other);

@@ -49,10 +49,10 @@ namespace Smartstore.Core.Checkout.Payment
             => Task.FromResult(new PreProcessPaymentResult());
 
         /// <inheritdoc/>
-        public abstract Task<ProcessPaymentResult> ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest);
+        public abstract Task<ProcessPaymentResult> ProcessPaymentAsync(ProcessPaymentRequest request);
 
         /// <inheritdoc/>
-        public virtual Task PostProcessPaymentAsync(PostProcessPaymentRequest postProcessPaymentRequest)
+        public virtual Task PostProcessPaymentAsync(PostProcessPaymentRequest request)
             => null;
 
         /// <inheritdoc/>

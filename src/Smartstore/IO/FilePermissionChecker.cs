@@ -228,7 +228,7 @@ namespace Smartstore.IO
                 var checkModify = rights.HasFlag(FileEntryRights.Modify);
                 var checkDelete = rights.HasFlag(FileEntryRights.Delete);
 
-                if (checkRead & readPermissions.Contains(userFilePermission))
+                if (checkRead && readPermissions.Contains(userFilePermission))
                     return true;
 
                 return (checkWrite || checkModify || checkDelete) & writePermissions.Contains(userFilePermission);

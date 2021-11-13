@@ -73,7 +73,7 @@ namespace Smartstore.Core.Catalog.Categories
 
             if (invalidCategoryIds.Any())
             {
-                var num = await _db.Categories
+                await _db.Categories
                     .Where(x => invalidCategoryIds.Contains(x.Id))
                     .BatchUpdateAsync(x => new Category { ParentCategoryId = 0 }, cancelToken);
             }
