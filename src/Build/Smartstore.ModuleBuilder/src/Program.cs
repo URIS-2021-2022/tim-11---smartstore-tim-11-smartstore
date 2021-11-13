@@ -154,11 +154,6 @@ namespace Smartstore.ModuleBuilder
             }
         }
 
-        //static string[] GetLibNames(DependencyContext context)
-        //{
-        //    return context.CompileLibraries.Where(x => x.Type == "package").Select(x => x.Name).ToArray();
-        //}
-
         class ModuleDescriptor
         {
             public string[] PrivateReferences { get; set; }
