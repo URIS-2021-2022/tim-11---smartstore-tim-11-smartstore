@@ -25,7 +25,7 @@ namespace Smartstore.Data.MySql
         public override DbConnectionStringBuilder CreateConnectionStringBuilder(
             string server,
             string database,
-            string userId,
+            string userName,
             string password)
         {
             Guard.NotEmpty(server, nameof(server));
@@ -34,7 +34,7 @@ namespace Smartstore.Data.MySql
             {
                 Server = server,
                 Database = database,
-                UserID = userId,
+                UserID = userName,
                 Password = password,
                 Pooling = true,
                 MinimumPoolSize = 1,

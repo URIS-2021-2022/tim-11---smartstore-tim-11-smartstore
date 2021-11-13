@@ -324,7 +324,7 @@
                         var icons = _.isArray(icon) ? icon : [icon];
                         var len = (isResult ? 2 : 0) || icons.length;
 
-                        for (i = 0; i < len; i++) {
+                        for (var i = 0; i < len; i++) {
                             var iconClass = (i < icons.length ? icons[i] + " " : "far ") + "fa-fw mr-2 fs-h6";
                             html.push('<i class="' + iconClass + '" style="width: unset;" />');
                         }

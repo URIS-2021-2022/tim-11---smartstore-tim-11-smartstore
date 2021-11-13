@@ -1034,7 +1034,8 @@ $.extend($.validator, {
 				return val && val.length > 0;
 			case 'input':
 				if ( this.checkable(element) )
-					return this.getLength(value, element) > 0;
+					return this.getLength(value, element) > 0
+						break;
 			default:
 				return $.trim(value).length > 0;
 			}

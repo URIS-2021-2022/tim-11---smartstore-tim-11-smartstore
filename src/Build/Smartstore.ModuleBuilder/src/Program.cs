@@ -161,7 +161,6 @@ namespace Smartstore.ModuleBuilder
 
         class ModuleDescriptor
         {
-            public string SystemName { get; set; }
             public string[] PrivateReferences { get; set; }
         }
     }
