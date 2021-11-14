@@ -89,7 +89,7 @@ namespace Smartstore.Core.Checkout.GiftCards
                 return base.ConvertTo(culture, format, value, to);
             }
 
-            if (value is not null and IEnumerable<GiftCardCouponCode> attributes)
+            if (value is IEnumerable<GiftCardCouponCode> attributes)
             {
                 // XML
                 //var root = new XElement("Attributes");
