@@ -208,7 +208,7 @@ namespace Smartstore.Core.Catalog.Products
             return result;
         }
 
-        private class ProductsPerTag
+        private sealed class ProductsPerTag
         {
             public int ProductTagId { get; set; }
             public int ProductCount { get; set; }

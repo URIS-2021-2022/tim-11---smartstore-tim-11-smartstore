@@ -383,7 +383,6 @@ namespace Smartstore.Core.Catalog.Search.Modelling
 
         protected virtual void ConvertManufacturer(CatalogSearchQuery query, string origin)
         {
-            //List<int> ids = null;
             //int? minHitCount = null;
 
             //GetValueFor(query, "m", FacetGroupKind.Brand, out ids);
