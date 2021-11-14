@@ -96,9 +96,9 @@ namespace Smartstore.Core.Content.Media
         string IFileEntry.SubPath => Node.Value.Path;
 
         /// <inheritdoc/>
-        bool IFileEntry.IsSymbolicLink(out string finalPhysicalPath)
+        bool IFileEntry.IsSymbolicLink(out string finalTargetPath)
         {
-            finalPhysicalPath = null;
+            finalTargetPath = null;
             return false;
         }
 

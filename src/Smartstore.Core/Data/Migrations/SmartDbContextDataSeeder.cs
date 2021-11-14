@@ -616,7 +616,7 @@ namespace Smartstore.Core.Data.Migrations
                 ["SmartStore.Core.Domain.Catalog.GiftCardType"] = nameof(GiftCardType),
                 ["SmartStore.Core.Domain.Catalog.LowStockActivity"] = nameof(LowStockActivity),
                 ["SmartStore.Core.Domain.Catalog.ManageInventoryMethod"] = nameof(ManageInventoryMethod),
-                ["SmartStore.Core.Domain.Catalog.ProductSortingEnum"] = nameof(ProductSortingEnum),
+                ["SmartStore.Core.Domain.Catalog.ProductSortingEnum"] = nameof(ProductSorting),
                 ["SmartStore.Core.Domain.Catalog.ProductType"] = nameof(ProductType),
                 ["SmartStore.Core.Domain.Catalog.ProductVariantAttributeValueType"] = nameof(ProductVariantAttributeValueType),
                 ["SmartStore.Core.Domain.Catalog.RecurringProductCyclePeriod"] = nameof(RecurringProductCyclePeriod),

@@ -74,7 +74,7 @@ namespace Smartstore.Core.Security
         private static byte[] EncryptTextToMemory(string data, byte[] key, byte[] iv)
         {
             using var ms = new MemoryStream();
-            using (var cs = new CryptoStream(ms, TripleDES.Create().CreateEncryptor(key, iv), CryptoStreamMode.Write))
+            using (var cs = new CryptoStream(ms, Aes.Create().CreateEncryptor(key, iv), CryptoStreamMode.Write))
             {
                 var toEncrypt = Encoding.Unicode.GetBytes(data);
                 cs.Write(toEncrypt, 0, toEncrypt.Length);

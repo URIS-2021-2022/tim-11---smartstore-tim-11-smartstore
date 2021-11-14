@@ -259,7 +259,7 @@ namespace Smartstore.Core.Catalog.Attributes
                                 {
                                     if (postedFile.Length > _catalogSettings.Value.FileUploadMaximumSizeBytes)
                                     {
-                                        warnings.Add(T("ShoppingCart.MaximumUploadedFileSize", (int)(_catalogSettings.Value.FileUploadMaximumSizeBytes / 1024)));
+                                        warnings.Add(T("ShoppingCart.MaximumUploadedFileSize", (_catalogSettings.Value.FileUploadMaximumSizeBytes / 1024)));
                                     }
                                     else
                                     {
@@ -442,21 +442,18 @@ namespace Smartstore.Core.Catalog.Attributes
 
                     while ((await pager.ReadNextPageAsync<ProductVariantAttributeCombination>()).Out(out var combinations))
                     {
-                        foreach (var combination in combinations)
+                        foreach (var combination in combinations.Where(comb => comb.AttributeSelection.AttributesMap.Any()))
                         {
-                            if (combination.AttributeSelection.AttributesMap.Any())
-                            {
-                                // <ProductVariantAttribute.Id>:<ProductVariantAttributeValue.Id>[,...]
-                                var valuesKeys = combination.AttributeSelection.AttributesMap
-                                    .OrderBy(x => x.Key)
-                                    .Select(x => $"{x.Key}:{string.Join(",", x.Value.OrderBy(y => y))}");
+                            // <ProductVariantAttribute.Id>:<ProductVariantAttributeValue.Id>[,...]
+                            var valuesKeys = combination.AttributeSelection.AttributesMap
+                                .OrderBy(x => x.Key)
+                                .Select(x => $"{x.Key}:{string.Join(",", x.Value.OrderBy(y => y))}");
 
-                                data[string.Join("-", valuesKeys)] = new CombinationAvailabilityInfo
-                                {
-                                    IsActive = combination.IsActive,
-                                    IsOutOfStock = combination.StockQuantity <= 0 && !combination.AllowOutOfStockOrders
-                                };
-                            }
+                            data[string.Join("-", valuesKeys)] = new CombinationAvailabilityInfo
+                            {
+                                IsActive = combination.IsActive,
+                                IsOutOfStock = combination.StockQuantity <= 0 && !combination.AllowOutOfStockOrders
+                            };
                         }
                     }
                 }
@@ -525,7 +522,6 @@ namespace Smartstore.Core.Catalog.Attributes
             }
 
             var key = builder.ToString();
-            //$"{!unavailableCombinations.ContainsKey(key),-5} {currentValue.ProductVariantAttributeId}:{currentValue.Id} -> {key}".Dump();
 
             if (unavailableCombinations.TryGetValue(key, out var availability))
             {

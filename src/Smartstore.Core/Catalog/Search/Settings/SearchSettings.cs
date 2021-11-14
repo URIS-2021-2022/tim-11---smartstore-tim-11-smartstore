@@ -50,7 +50,7 @@ namespace Smartstore.Core.Catalog.Search
         /// <summary>
         /// Gets or sets the default sort order in search results
         /// </summary>
-        public ProductSortingEnum DefaultSortOrder { get; set; } = ProductSortingEnum.Relevance;
+        public ProductSorting DefaultSortOrder { get; set; } = ProductSorting.Relevance;
 
         /// <summary>
         /// Hidden setting indicating whether to use catalog search instead of Linq search in backend.

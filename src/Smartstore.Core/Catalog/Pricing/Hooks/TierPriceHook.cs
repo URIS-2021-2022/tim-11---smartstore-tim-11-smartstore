@@ -69,7 +69,7 @@ namespace Smartstore.Core.Catalog.Pricing
                 await _db.Products
                     .Where(x =>
                         deletedTierPricesProductIds.Contains(x.Id) &&
-                        !x.TierPrices.Any(y => !deletedTierPricesIds.Contains(y.Id)).Any())
+                        !x.TierPrices.Any(y => !deletedTierPricesIds.Contains(y.Id)))
                     .BatchUpdateAsync(x => new Product { HasTierPrices = false }, cancelToken);
             }
         }

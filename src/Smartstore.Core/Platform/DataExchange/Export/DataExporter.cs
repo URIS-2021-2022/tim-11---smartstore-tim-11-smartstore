@@ -1108,7 +1108,7 @@ namespace Smartstore.Core.DataExchange.Export
                     ctx.AssociatedProductBatchContext = null;
 
                     var context = ctx.ProductBatchContext;
-                    if (!ctx.Projection.NoGroupedProducts && entities.Where(x => x.ProductType == ProductType.GroupedProduct).Any())
+                    if (!ctx.Projection.NoGroupedProducts && entities.Any(x => x.ProductType == ProductType.GroupedProduct))
                     {
                         await context.AssociatedProducts.LoadAllAsync();
                         var associatedProducts = context.AssociatedProducts.SelectMany(x => x.Value);

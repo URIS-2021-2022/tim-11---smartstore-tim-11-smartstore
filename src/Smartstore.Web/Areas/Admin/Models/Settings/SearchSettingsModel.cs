@@ -38,7 +38,7 @@ namespace Smartstore.Admin.Models
         public int FilterMaxChoicesCount { get; set; }
 
         [LocalizedDisplay("*DefaultSortOrder")]
-        public ProductSortingEnum DefaultSortOrder { get; set; }
+        public ProductSorting DefaultSortOrder { get; set; }
 
         [LocalizedDisplay("*SearchProductByIdentificationNumber")]
         public bool SearchProductByIdentificationNumber { get; set; }
