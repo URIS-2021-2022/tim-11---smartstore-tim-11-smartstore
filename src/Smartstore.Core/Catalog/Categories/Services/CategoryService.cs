@@ -374,6 +374,8 @@ namespace Smartstore.Core.Catalog.Categories
                     scope.DbContext.DetachEntities(x => x is Product || x is Category || x is StoreMapping, false);
                 }
 
+                catch { }
+
                 foreach (var subCategory in subCategories)
                 {
                     await ProcessCategory(scope, subCategory);

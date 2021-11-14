@@ -462,7 +462,7 @@ namespace Smartstore.Web.Controllers
             query.Sorting.Clear();
             query = query
                 .BuildFacetMap(false)
-                .SortBy(ProductSortingEnum.CreatedOn)
+                .SortBy(ProductSorting.CreatedOn)
                 .Slice(0, _catalogSettings.RecentlyAddedProductsNumber);
 
             var result = await _catalogSearchService.SearchAsync(query);
@@ -497,7 +497,7 @@ namespace Smartstore.Web.Controllers
             query.Sorting.Clear();
             query = query
                 .BuildFacetMap(false)
-                .SortBy(ProductSortingEnum.CreatedOn)
+                .SortBy(ProductSorting.CreatedOn)
                 .Slice(0, _catalogSettings.RecentlyAddedProductsNumber);
 
             var result = await _catalogSearchService.SearchAsync(query);

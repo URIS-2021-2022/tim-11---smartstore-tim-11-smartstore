@@ -95,7 +95,7 @@ namespace Smartstore.Core.Catalog.Products.Rules
             {
                 searchQuery = searchQuery
                     .Slice(skip, take)
-                    .SortBy(ProductSortingEnum.NameAsc);
+                    .SortBy(ProductSorting.NameAsc);
 
                 var searchResult = await _catalogSearchService.SearchAsync(searchQuery);
                 var hits = await searchResult.GetHitsAsync();

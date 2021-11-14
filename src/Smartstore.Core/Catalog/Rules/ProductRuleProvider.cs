@@ -85,7 +85,7 @@ namespace Smartstore.Core.Catalog.Rules
                 .BuildFacetMap(false)
                 .CheckSpelling(0)
                 .Slice(pageIndex * pageSize, pageSize)
-                .SortBy(ProductSortingEnum.CreatedOn);
+                .SortBy(ProductSorting.CreatedOn);
 
             if ((filters?.Length ?? 0) == 0)
             {

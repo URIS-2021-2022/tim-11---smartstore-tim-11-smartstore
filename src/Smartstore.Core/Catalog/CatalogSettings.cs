@@ -97,7 +97,7 @@ namespace Smartstore.Core.Catalog
         /// <summary>
         /// Gets or sets the default sort order in product lists
         /// </summary>
-        public ProductSortingEnum DefaultSortOrder { get; set; } = ProductSortingEnum.Relevance;
+        public ProductSorting DefaultSortOrder { get; set; } = ProductSorting.Relevance;
 
         /// <summary>
         /// Gets or sets a value indicating whether customers are allowed to change product view mode

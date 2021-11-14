@@ -44,9 +44,9 @@ namespace Smartstore.Web.Controllers
                 model.AvailableSortOptions = _cache.Get("pres:productlistsortoptions-{0}".FormatInvariant(_workContext.WorkingLanguage.Id), () =>
                 {
                     var dict = new Dictionary<int, string>();
-                    foreach (ProductSortingEnum enumValue in Enum.GetValues(typeof(ProductSortingEnum)))
+                    foreach (ProductSorting enumValue in Enum.GetValues(typeof(ProductSorting)))
                     {
-                        if (enumValue == ProductSortingEnum.CreatedOnAsc || enumValue == ProductSortingEnum.Initial)
+                        if (enumValue == ProductSorting.CreatedOnAsc || enumValue == ProductSorting.Initial)
                             continue;
 
                         dict[(int)enumValue] = _localizationService.GetLocalizedEnum(enumValue, _workContext.WorkingLanguage.Id);
@@ -59,7 +59,7 @@ namespace Smartstore.Web.Controllers
                 if (!searchQuery.Origin.EqualsNoCase("Search/Search"))
                 {
                     model.RelevanceSortOrderName = T("Products.Sorting.Featured");
-                    if ((int)ProductSortingEnum.Relevance == (model.CurrentSortOrder ?? 1))
+                    if ((int)ProductSorting.Relevance == (model.CurrentSortOrder ?? 1))
                     {
                         model.CurrentSortOrderName = model.RelevanceSortOrderName;
                     }

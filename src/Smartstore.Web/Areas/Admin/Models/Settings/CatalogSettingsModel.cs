@@ -146,7 +146,7 @@ namespace Smartstore.Admin.Models
         public string DefaultViewMode { get; set; }
 
         [LocalizedDisplay("*DefaultSortOrderMode")]
-        public ProductSortingEnum DefaultSortOrder { get; set; }
+        public ProductSorting DefaultSortOrder { get; set; }
 
         [LocalizedDisplay("*AllowProductViewModeChanging")]
         public bool AllowProductViewModeChanging { get; set; }

@@ -27,7 +27,7 @@
         <select class="artlist-action-select form-control noskin" name="artlist-action-sort" id="artlist-action-sort" data-qname="o" title="@T("Products.SortByX", Model.CurrentSortOrderName)">
             @foreach (var sort in Model.AvailableSortOptions)
             {
-                var sortName = (Model is ProductSummaryModel && sort.Key == (int)ProductSortingEnum.Relevance) ? Model.RelevanceSortOrderName : null;
+                var sortName = (Model is ProductSummaryModel && sort.Key == (int)ProductSorting.Relevance) ? Model.RelevanceSortOrderName : null;
                 <option value="@sort.Key" attr-selected='(sort.Key == Model.CurrentSortOrder, "selected")'>@(sortName ?? sort.Value)</option>
             }
         </select>

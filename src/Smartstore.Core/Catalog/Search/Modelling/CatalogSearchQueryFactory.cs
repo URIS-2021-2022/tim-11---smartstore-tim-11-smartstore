@@ -145,8 +145,8 @@ namespace Smartstore.Core.Catalog.Search.Modelling
 
 			query.Slice((index - 1) * size, size);
 
-			var orderBy = GetValueFor<ProductSortingEnum?>("o");
-			if (orderBy == null || orderBy == ProductSortingEnum.Initial)
+			var orderBy = GetValueFor<ProductSorting?>("o");
+			if (orderBy == null || orderBy == ProductSorting.Initial)
 			{
 				orderBy = origin.EqualsNoCase("Search/Search") ? _searchSettings.DefaultSortOrder : _catalogSettings.DefaultSortOrder;
 			}

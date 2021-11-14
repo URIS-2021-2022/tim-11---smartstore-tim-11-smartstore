@@ -367,7 +367,7 @@ namespace Smartstore.Admin.Controllers
             {
                 searchQuery = searchQuery
                     .Slice(skip, pageSize)
-                    .SortBy(ProductSortingEnum.NameAsc);
+                    .SortBy(ProductSorting.NameAsc);
 
                 var searchResult = await _catalogSearchService.Value.SearchAsync(searchQuery);
                 var hits = await searchResult.GetHitsAsync();

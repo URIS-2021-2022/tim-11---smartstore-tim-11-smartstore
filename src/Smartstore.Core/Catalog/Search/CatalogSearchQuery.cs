@@ -74,26 +74,26 @@ namespace Smartstore.Core.Catalog.Search
             return this;
         }
 
-        public CatalogSearchQuery SortBy(ProductSortingEnum sort)
+        public CatalogSearchQuery SortBy(ProductSorting sort)
         {
             switch (sort)
             {
-                case ProductSortingEnum.CreatedOnAsc:
-                case ProductSortingEnum.CreatedOn:
-                    return SortBy(SearchSort.ByDateTimeField("createdon", sort == ProductSortingEnum.CreatedOn));
+                case ProductSorting.CreatedOnAsc:
+                case ProductSorting.CreatedOn:
+                    return SortBy(SearchSort.ByDateTimeField("createdon", sort == ProductSorting.CreatedOn));
 
-                case ProductSortingEnum.NameAsc:
-                case ProductSortingEnum.NameDesc:
-                    return SortBy(SearchSort.ByStringField("name", sort == ProductSortingEnum.NameDesc));
+                case ProductSorting.NameAsc:
+                case ProductSorting.NameDesc:
+                    return SortBy(SearchSort.ByStringField("name", sort == ProductSorting.NameDesc));
 
-                case ProductSortingEnum.PriceAsc:
-                case ProductSortingEnum.PriceDesc:
-                    return SortBy(SearchSort.ByDoubleField("price", sort == ProductSortingEnum.PriceDesc));
+                case ProductSorting.PriceAsc:
+                case ProductSorting.PriceDesc:
+                    return SortBy(SearchSort.ByDoubleField("price", sort == ProductSorting.PriceDesc));
 
-                case ProductSortingEnum.Relevance:
+                case ProductSorting.Relevance:
                     return SortBy(SearchSort.ByRelevance());
 
-                case ProductSortingEnum.Initial:
+                case ProductSorting.Initial:
                 default:
                     return this;
             }

@@ -57,7 +57,7 @@ namespace Smartstore.Web.Controllers
             query
                 .BuildFacetMap(false)
                 .Slice(0, Math.Min(16, _searchSettings.InstantSearchNumberOfProducts))
-                .SortBy(ProductSortingEnum.Relevance);
+                .SortBy(ProductSorting.Relevance);
 
             var result = await _catalogSearchService.SearchAsync(query);
 

@@ -84,20 +84,20 @@ namespace Smartstore.Admin.Controllers
                     switch (sort.Member)
                     {
                         case nameof(ProductModel.Name):
-                            searchQuery = searchQuery.SortBy(sort.Descending ? ProductSortingEnum.NameDesc : ProductSortingEnum.NameAsc);
+                            searchQuery = searchQuery.SortBy(sort.Descending ? ProductSorting.NameDesc : ProductSorting.NameAsc);
                             break;
                         case nameof(ProductModel.Price):
-                            searchQuery = searchQuery.SortBy(sort.Descending ? ProductSortingEnum.PriceDesc : ProductSortingEnum.PriceAsc);
+                            searchQuery = searchQuery.SortBy(sort.Descending ? ProductSorting.PriceDesc : ProductSorting.PriceAsc);
                             break;
                         case nameof(ProductModel.CreatedOn):
-                            searchQuery = searchQuery.SortBy(sort.Descending ? ProductSortingEnum.CreatedOn : ProductSortingEnum.CreatedOnAsc);
+                            searchQuery = searchQuery.SortBy(sort.Descending ? ProductSorting.CreatedOn : ProductSorting.CreatedOnAsc);
                             break;
                     }
                 }
 
                 if (!searchQuery.Sorting.Any())
                 {
-                    searchQuery = searchQuery.SortBy(ProductSortingEnum.NameAsc);
+                    searchQuery = searchQuery.SortBy(ProductSorting.NameAsc);
                 }
 
                 var searchResult = await _catalogSearchService.Value.SearchAsync(searchQuery);
