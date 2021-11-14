@@ -120,7 +120,7 @@ namespace Smartstore.Core.Messaging
 
             if (subscriber?.Subscription == null)
             {
-                return null;
+                return Task.FromResult<CreateMessageResult>(null);
             }
 
             var messageContext = new MessageContext

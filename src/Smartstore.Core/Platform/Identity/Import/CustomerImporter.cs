@@ -201,7 +201,7 @@ namespace Smartstore.Core.DataExchange.Import
 
                     customer = new Customer
                     {
-                        CustomerGuid = new Guid(),
+                        CustomerGuid = Guid.NewGuid(),
                         AffiliateId = 0,
                         Active = true
                     };

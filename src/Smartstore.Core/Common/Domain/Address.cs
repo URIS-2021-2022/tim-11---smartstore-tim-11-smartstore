@@ -25,7 +25,7 @@ namespace Smartstore.Core.Common
         }
     }
 
-    public partial class Address : EntityWithAttributes, ICloneable, IEquatable<Address>
+    public sealed partial class Address : EntityWithAttributes, ICloneable, IEquatable<Address>
     {
         public Address()
         {

@@ -102,7 +102,7 @@ namespace Smartstore
                         // Split by common delims
                         return Tokenize(input, c, options);
                     }
-                    if (c == '\r' && (i + 1) < input.Length & input[i + 1] == '\n')
+                    if (c == '\r' && (i + 1) < input.Length && input[i + 1] == '\n')
                     {
                         // Split by lines
                         return input.GetLines(false, true);
