@@ -107,7 +107,6 @@ namespace Smartstore.Core.Catalog.Pricing.Calculators
         {
             var result = new HashSet<Discount>();
             var batchContext = context.Options.BatchContext;
-            var customer = context.Options.Customer;
 
             // Check discounts assigned to the product.
             // We use the property "HasDiscountsApplied" for performance optimization to avoid unnecessary database calls.

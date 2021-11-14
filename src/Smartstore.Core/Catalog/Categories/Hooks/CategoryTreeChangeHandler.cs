@@ -305,7 +305,7 @@ namespace Smartstore.Core.Catalog.Categories
 
         private async Task PublishEvent(CategoryTreeChangeReason reason)
         {
-            if (_handledReasons[(int)reason] == false)
+            if (!_handledReasons[(int)reason])
             {
                 await _eventPublisher.PublishAsync(new CategoryTreeChangedEvent(reason));
                 _handledReasons[(int)reason] = true;

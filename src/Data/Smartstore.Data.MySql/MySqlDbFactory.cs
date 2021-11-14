@@ -101,12 +101,9 @@ namespace Smartstore.Data.MySql
             if (provider != null)
             {
                 var translators = _translatorsField.GetValue(provider) as List<IMethodCallTranslator>;
-                if (translators != null)
+                if (translators != null && sourceMethod.Name.StartsWith("DateDiff"))
                 {
-                    if (sourceMethod.Name.StartsWith("DateDiff"))
-                    {
-                        return translators.FirstOrDefault(x => x is MySqlDateDiffFunctionsTranslator);
-                    }
+                    return translators.FirstOrDefault(x => x is MySqlDateDiffFunctionsTranslator);
                 }
             }
 
