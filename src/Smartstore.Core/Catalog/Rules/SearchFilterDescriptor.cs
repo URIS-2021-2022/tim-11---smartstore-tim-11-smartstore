@@ -12,7 +12,7 @@ namespace Smartstore.Core.Catalog.Rules
 
     public abstract class SearchFilterDescriptor : RuleDescriptor
     {
-        private SearchFilterDescriptor()
+        public SearchFilterDescriptor()
             : base(RuleScope.Product)
         {
         }
