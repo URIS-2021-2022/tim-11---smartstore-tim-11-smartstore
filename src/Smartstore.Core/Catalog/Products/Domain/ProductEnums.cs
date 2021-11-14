@@ -192,7 +192,7 @@
     /// <summary>
     /// Represents the product sorting.
     /// </summary>
-    public enum ProductSortingEnum
+    public enum ProductSorting
     {
         /// <summary>
         /// Initial state

@@ -27,14 +27,14 @@ namespace Smartstore.Data.SqlServer
         public override DbConnectionStringBuilder CreateConnectionStringBuilder(
             string server, 
             string database,
-            string userId,
+            string userName,
             string password)
         {
             Guard.NotEmpty(server, nameof(server));
 
             var builder = new SqlConnectionStringBuilder 
             {
-                IntegratedSecurity = userId.IsEmpty(),
+                IntegratedSecurity = userName.IsEmpty(),
                 DataSource = server,
                 InitialCatalog = database,
                 UserInstance = false,
@@ -46,7 +46,7 @@ namespace Smartstore.Data.SqlServer
             
             if (!builder.IntegratedSecurity)
             {
-                builder.UserID = userId;
+                builder.UserID = userName;
                 builder.Password = password;
             }
 

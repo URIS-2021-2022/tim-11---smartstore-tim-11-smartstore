@@ -247,9 +247,9 @@ namespace Smartstore.Data.SqlServer
             return DetectSqlError(ex, _transientErrorCodes);
         }
 
-        public override bool IsUniquenessViolationException(DbUpdateException updateException)
+        public override bool IsUniquenessViolationException(DbUpdateException ex)
         {
-            return DetectSqlError(updateException?.InnerException, _uniquenessViolationErrorCodes);
+            return DetectSqlError(ex?.InnerException, _uniquenessViolationErrorCodes);
         }
 
         public override DbParameter CreateParameter()
