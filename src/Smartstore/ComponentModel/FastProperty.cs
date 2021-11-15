@@ -503,7 +503,7 @@ namespace Smartstore.ComponentModel
     internal sealed class DelegatedAccessor : FastProperty
     {
         // Delegate type for a by-ref property getter
-        private delegate TValue ByRefFunc<TDeclaringType, TValue>(ref TDeclaringType arg);
+        private delegate TValue ByRefFunc<TDeclaringType, out TValue>(ref TDeclaringType arg);
 
         private static readonly MethodInfo CallPropertyGetterOpenGenericMethod = typeof(DelegatedAccessor).GetTypeInfo().GetDeclaredMethod("CallPropertyGetter");
         private static readonly MethodInfo CallPropertyGetterByReferenceOpenGenericMethod = typeof(DelegatedAccessor).GetTypeInfo().GetDeclaredMethod("CallPropertyGetterByReference");

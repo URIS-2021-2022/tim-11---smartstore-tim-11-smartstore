@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -309,8 +310,9 @@ namespace Smartstore.Core.Checkout.Payment
                 result.Errors.Add(T("Common.Payment.NoCaptureSupport"));
                 return result;
             }
-            catch
+            catch (Exception e)
             {
+                Debug.WriteLine("Exception Message: " + e.Message);
                 throw;
             }
         }

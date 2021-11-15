@@ -365,7 +365,7 @@ namespace Smartstore.Core.Catalog
         /// <summary>
         /// Gets or sets the price display style for prices
         /// </summary>
-        public PriceDisplayStyle PriceDisplayStyle { get; set; }
+        public PriceDisplayStyles PriceDisplayStyle { get; set; }
 
         /// <summary>
         /// Displays a textual resources instead of the decimal value when prices are 0

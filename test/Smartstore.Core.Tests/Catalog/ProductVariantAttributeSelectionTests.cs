@@ -70,7 +70,7 @@ namespace Smartstore.Core.Tests.Catalog
 
         private static void ValidateSelection(ProductVariantAttributeSelection selection)
         {
-            Assert.AreEqual(selection.AttributesMap.Count(), 3);
+            Assert.AreEqual(3, selection.AttributesMap.Count());
             Assert.IsNotNull(selection.AttributesMap.FirstOrDefault(x => x.Key == 987));
 
             var values = selection.GetAttributeValues(123)

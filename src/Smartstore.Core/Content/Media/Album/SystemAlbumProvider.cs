@@ -351,7 +351,6 @@ namespace Smartstore.Core.Content.Media
                     list.Clear();
                 }
 
-                yield break;
             }
         }
 
