@@ -356,7 +356,7 @@ namespace Smartstore.Core.Checkout.Tax
 
         #endregion
 
-        private class TaxAddressKey : Tuple<int, bool>
+        private sealed class TaxAddressKey : Tuple<int, bool>
         {
             public TaxAddressKey(int customerId, bool productIsEsd)
                 : base(customerId, productIsEsd)
@@ -364,7 +364,7 @@ namespace Smartstore.Core.Checkout.Tax
             }
         }
 
-        private class TaxRateCacheKey : Tuple<int, int, int>
+        private sealed class TaxRateCacheKey : Tuple<int, int, int>
         {
             public TaxRateCacheKey(int customerId, int taxCategoryId, int variantId)
                 : base(customerId, taxCategoryId, variantId)
