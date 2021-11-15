@@ -33,9 +33,8 @@ namespace Smartstore.Core.Installation
         private readonly SeedDataConfiguration _config;
         private readonly IHttpContextAccessor _httpContextAccessor;
         
-        private InvariantSeedData _data;
+        private readonly InvariantSeedData _data;
         private IXmlResourceManager _xmlResourceManager;
-        private IUrlService _urlService;
         private int _defaultStoreId;
 
         public InstallationDataSeeder(
@@ -347,7 +346,7 @@ namespace Smartstore.Core.Installation
             await SaveAsync(customer);
         }
 
-        private async Task HashDefaultCustomerPassword(string defaultUserEmail, string defaultUserPassword)
+        private async Task HashDefaultCustomerPassword(string defaultUserEmail,string defaultUserPassword)
         {
             var encryptor = new Encryptor(new SecuritySettings());
             var saltKey = encryptor.CreateSaltKey(5);

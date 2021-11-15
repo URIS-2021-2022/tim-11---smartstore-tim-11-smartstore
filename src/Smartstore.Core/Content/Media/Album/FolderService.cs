@@ -12,7 +12,7 @@ namespace Smartstore.Core.Content.Media
 {
     public partial class FolderService : AsyncDbSaveHook<MediaFolder>, IFolderService
     {
-        internal static TimeSpan FolderTreeCacheDuration = TimeSpan.FromHours(3);
+        internal static readonly TimeSpan FolderTreeCacheDuration = TimeSpan.FromHours(3);
 
         internal const string FolderTreeKey = "mediafolder:tree";
 

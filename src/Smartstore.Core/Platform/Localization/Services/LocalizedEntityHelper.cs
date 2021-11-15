@@ -37,7 +37,7 @@ namespace Smartstore.Core.Localization
             _urlService = urlService;
             _workContext = workContext;
 
-            _languageCount = _languageService.GetAllLanguages().Count();
+            _languageCount = _languageService.GetAllLanguages().Count;
             _defaultLanguage = _db.Languages.FindById(_languageService.GetMasterLanguageId());
         }
 

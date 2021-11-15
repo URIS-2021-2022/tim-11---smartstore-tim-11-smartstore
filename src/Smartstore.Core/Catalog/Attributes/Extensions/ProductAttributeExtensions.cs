@@ -47,13 +47,11 @@ namespace Smartstore.Core.Catalog.Attributes
                     {
                         string str1 = node1.Attributes["ID"].InnerText.Trim();
                         int id = 0;
-                        if (int.TryParse(str1, out id))
+                        if ((int.TryParse(str1, out id)) && (id == pva.Id))
                         {
-                            if (id == pva.Id)
-                            {
                                 pvaElement = (XmlElement)node1;
                                 break;
-                            }
+                            
                         }
                     }
                 }

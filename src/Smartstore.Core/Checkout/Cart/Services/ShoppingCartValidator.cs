@@ -85,34 +85,34 @@ namespace Smartstore.Core.Checkout.Cart
             return isValid;
         }
 
-        public virtual bool ValidateBundleItem(ProductBundleItem bundleItem, IList<string> warnings)
+        public virtual bool ValidateBundleItem(ProductBundleItem bundleItems, IList<string> warnings)
         {
-            Guard.NotNull(bundleItem, nameof(bundleItem));
+            Guard.NotNull(bundleItems, nameof(bundleItems));
             Guard.NotNull(warnings, nameof(warnings));
 
             var currentWarnings = new List<string>();
 
-            var name = bundleItem.GetLocalizedName();
+            var name = bundleItems.GetLocalizedName();
 
-            if (!bundleItem.Published)
+            if (!bundleItems.Published)
             {
                 currentWarnings.Add(T("ShoppingCart.Bundle.BundleItemUnpublished", name));
             }
 
-            if (bundleItem.ProductId == 0
-                || bundleItem.Product == null
-                || bundleItem.BundleProductId == 0
-                || bundleItem.BundleProduct == null)
+            if (bundleItems.ProductId == 0
+                || bundleItems.Product == null
+                || bundleItems.BundleProductId == 0
+                || bundleItems.BundleProduct == null)
             {
                 currentWarnings.Add(T("ShoppingCart.Bundle.MissingProduct", name));
             }
 
-            if (bundleItem.Quantity <= 0)
+            if (bundleItems.Quantity <= 0)
             {
                 currentWarnings.Add(T("ShoppingCart.Bundle.Quantity", name));
             }
 
-            if (bundleItem.Product.IsDownload || bundleItem.Product.IsRecurring)
+            if (bundleItems.Product.IsDownload || bundleItems.Product.IsRecurring)
             {
                 currentWarnings.Add(T("ShoppingCart.Bundle.ProductResrictions", name));
             }
