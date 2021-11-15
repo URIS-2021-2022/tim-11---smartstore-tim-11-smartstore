@@ -167,7 +167,7 @@ namespace Smartstore.Core.Catalog.Rules
                 }
 
                 return ctx.Query;
-            };
+            }
 
             CatalogSearchQuery stockQuantityFilter(SearchFilterContext ctx, int x)
             {
