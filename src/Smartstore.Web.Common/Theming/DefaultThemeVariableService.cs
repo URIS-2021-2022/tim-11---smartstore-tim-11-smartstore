@@ -71,7 +71,7 @@ namespace Smartstore.Web.Theming
         /// <summary>
         /// Merges <paramref name="variables"/> with preconfigured variables from <paramref name="descriptor"/>. 
         /// </summary>
-        private ExpandoObject MergeThemeVariables(ThemeDescriptor descriptor, IDictionary<string, object> variables)
+        private static ExpandoObject MergeThemeVariables(ThemeDescriptor descriptor, IDictionary<string, object> variables)
         {
             Guard.NotNull(descriptor, nameof(descriptor));
 
