@@ -31,7 +31,6 @@ namespace Smartstore.Web.Theming
         private readonly IRequestCache _requestCache;
         private readonly IBundleBuilder _bundleBuilder;
         private readonly IBundleCollection _bundles;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public DefaultThemeVariableService(
             SmartDbContext db,
@@ -46,7 +45,6 @@ namespace Smartstore.Web.Theming
             _requestCache = requestCache;
             _bundleBuilder = bundleBuilder;
             _bundles = bundles;
-            _httpContextAccessor = httpContextAccessor;
         }
 
         public virtual async Task<ExpandoObject> GetThemeVariablesAsync(string themeName, int storeId)
