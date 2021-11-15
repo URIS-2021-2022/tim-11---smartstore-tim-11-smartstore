@@ -220,7 +220,6 @@ namespace Smartstore.Core.Content.Media
             {
                 await EnsureMetadataResolvedAsync(entity, true);
                 var node = _folderService.FindNode(entity);
-                var dir = node?.Value?.Path;
                 return ConvertMediaFile(entity, node?.Value);
             }
 

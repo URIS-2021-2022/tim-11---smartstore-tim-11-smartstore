@@ -78,7 +78,7 @@ namespace Smartstore.Scheduling
             }
             else
             {
-                float fraction = (float)value / (float)Math.Max(maximum, 1f);
+                float fraction = (float)value / Math.Max(maximum, 1f);
                 int percentage = (int)Math.Round(fraction * 100f, 0);
 
                 return SetProgressAsync(Math.Min(Math.Max(percentage, 0), 100), message, immediately);

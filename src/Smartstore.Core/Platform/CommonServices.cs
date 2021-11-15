@@ -161,7 +161,7 @@ namespace Smartstore.Core
                         var services = context.Resolve<ICommonServices>();
                         prop.SetValue(context.Instance, services);
                     }
-                    catch { }
+                    catch(Exception ex) { throw ex; }
                 });
             };
         }

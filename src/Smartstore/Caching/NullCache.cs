@@ -78,7 +78,7 @@ namespace Smartstore.Caching
             => Task.FromResult(AcquireKeyLock(key));
 
         public void Clear()
-        { }
+        {throw new NotImplementedException(); }
 
         public Task ClearAsync()
             => Task.CompletedTask;

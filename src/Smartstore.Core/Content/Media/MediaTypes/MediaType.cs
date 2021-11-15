@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Smartstore.Core.Content.Media
 {
-    public class MediaType : IEquatable<MediaType>
+    public sealed class MediaType : IEquatable<MediaType>
     {
         private readonly static IDictionary<string, string[]> _defaultExtensionsMap = new Dictionary<string, string[]>
         {

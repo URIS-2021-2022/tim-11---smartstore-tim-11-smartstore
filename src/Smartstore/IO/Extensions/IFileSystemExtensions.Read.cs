@@ -44,8 +44,9 @@ namespace Smartstore
             Guard.NotNull(file, nameof(file));
 
             if (!file.Exists)
-            {
-                return null;
+            {   
+
+                return new byte[0];
             }
 
             using (var stream = file.OpenRead())

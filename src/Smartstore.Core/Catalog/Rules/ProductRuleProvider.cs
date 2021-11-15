@@ -205,7 +205,7 @@ namespace Smartstore.Core.Catalog.Rules
                 }
 
                 return ctx.Query;
-            };
+            }
 
             CatalogSearchQuery createdFilter(SearchFilterContext ctx, DateTime x)
             {
@@ -223,7 +223,7 @@ namespace Smartstore.Core.Catalog.Rules
                 }
 
                 return ctx.Query;
-            };
+            }
 
             #endregion
 

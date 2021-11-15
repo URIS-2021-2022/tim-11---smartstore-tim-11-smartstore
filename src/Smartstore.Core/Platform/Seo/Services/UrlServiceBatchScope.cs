@@ -11,7 +11,7 @@ namespace Smartstore.Core.Seo
     internal class UrlServiceBatchScope : Disposable, IUrlServiceBatchScope
     {
         private UrlService _urlService;
-        private SmartDbContext _db;
+        private readonly SmartDbContext _db;
         private DbSet<UrlRecord> _dbSet;
         private readonly List<ValidateSlugResult> _batch = new();
 

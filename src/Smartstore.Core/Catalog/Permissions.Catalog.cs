@@ -38,7 +38,7 @@
 
             public static class Category
             {
-                public const string Self = "catalog.category";
+                public const string SelfCat = "catalog.category";
                 public const string Read = "catalog.category.read";
                 public const string Update = "catalog.category.update";
                 public const string Create = "catalog.category.create";

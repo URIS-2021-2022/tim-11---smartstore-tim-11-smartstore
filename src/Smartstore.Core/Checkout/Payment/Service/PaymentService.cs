@@ -114,12 +114,9 @@ namespace Smartstore.Core.Checkout.Payment
                         }
 
                         // Rule sets.
-                        if (paymentMethods.TryGetValue(p.Metadata.SystemName, out var pm))
+                        if (paymentMethods.TryGetValue(p.Metadata.SystemName, out var pm)&&!await _cartRuleProvider.RuleMatchesAsync(pm))
                         {
-                            if (!await _cartRuleProvider.RuleMatchesAsync(pm))
-                            {
-                                return false;
-                            }
+                           return false;
                         }
 
                         filterRequest.PaymentMethod = p;

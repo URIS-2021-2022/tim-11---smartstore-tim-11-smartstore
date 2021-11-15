@@ -446,7 +446,7 @@ namespace Smartstore.Core.Localization
             }
         }
 
-        private class LocaleStringResourceParent : LocaleStringResource
+        private sealed class LocaleStringResourceParent : LocaleStringResource
         {
             public LocaleStringResourceParent(XmlNode localStringResource, string nameSpace = "")
             {
@@ -511,7 +511,7 @@ namespace Smartstore.Core.Localization
             }
         }
 
-        private class ComparisonComparer<T> : IComparer<T>, IComparer
+        private sealed class ComparisonComparer<T> : IComparer<T>, IComparer
         {
             private readonly Comparison<T> _comparison;
 

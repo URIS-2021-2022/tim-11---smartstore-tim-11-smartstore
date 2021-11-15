@@ -127,7 +127,6 @@ namespace Smartstore.Core.Content.Media
 
         public Task UninstallAlbumAsync(string albumName)
         {
-            var album = GetAlbumValidated(albumName, true);
 
             throw new NotImplementedException();
 

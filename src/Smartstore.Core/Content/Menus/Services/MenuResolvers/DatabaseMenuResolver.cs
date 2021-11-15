@@ -19,9 +19,9 @@ namespace Smartstore.Core.Content.Menus
         public Task<bool> ExistsAsync(string menuName)
             => _menuStorage.MenuExistsAsync(menuName);
 
-        public IMenu Resolve(string name)
+        public IMenu Resolve(string menuName)
         {
-            var menu = _ctx.ResolveNamed<IMenu>("database", new NamedParameter("menuName", name));
+            var menu = _ctx.ResolveNamed<IMenu>("database", new NamedParameter("menuName", menuName));
             return menu;
         }
     }

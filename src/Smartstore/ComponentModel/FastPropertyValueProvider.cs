@@ -34,7 +34,7 @@ namespace Smartstore.ComponentModel
                 try
                 {
                     _getter = FastProperty.GetProperty(_pi, PropertyCachingStrategy.EagerCached).ValueGetter;
-                    if (_getter == null) throw new Exception();
+                    if (_getter == null) throw new ArgumentNullException("_getter");
                 }
                 catch
                 {

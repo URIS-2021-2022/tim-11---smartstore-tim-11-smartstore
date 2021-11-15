@@ -82,7 +82,7 @@ namespace Smartstore.Core.Rules.Filters
                 return ExpressionHelper.TrueLiteral;
             }
 
-            if (Value is bool value && value == false)
+            if (Value is bool value && !value)
             {
                 // Negate group
                 return Expression.Equal(left, ExpressionHelper.FalseLiteral);
