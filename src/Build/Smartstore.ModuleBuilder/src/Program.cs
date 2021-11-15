@@ -153,7 +153,7 @@ namespace Smartstore.ModuleBuilder
 
         class ModuleDescriptor
         {
-            public string[] PrivateReferences { get; set; }
+            public string[] PrivateReferences { get; }
         }
     }
 }
