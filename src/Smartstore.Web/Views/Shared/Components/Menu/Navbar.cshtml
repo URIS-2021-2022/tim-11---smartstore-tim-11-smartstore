@@ -20,7 +20,7 @@
 }
 
 @functions {
-    private string GetCssClassForNode(TreeNode<MenuItem> node, NodePathState state)
+    private string GetCssClassForNode(TreeNode<MenuItem> node, NodePathStates state)
     {
         var liClasses = new List<string>();
 
@@ -31,12 +31,12 @@
             liClasses.Add(node.Depth > 0 ? "dropdown-submenu" : "dropdown");
         }
 
-        if ((state & NodePathState.Expanded) == NodePathState.Expanded)
+        if ((state & NodePathStates.Expanded) == NodePathStates.Expanded)
         {
             liClasses.Add("expanded");
         }
 
-        if ((state & NodePathState.Selected) == NodePathState.Selected)
+        if ((state & NodePathStates.Selected) == NodePathStates.Selected)
         {
             liClasses.Add("selected");
         }
