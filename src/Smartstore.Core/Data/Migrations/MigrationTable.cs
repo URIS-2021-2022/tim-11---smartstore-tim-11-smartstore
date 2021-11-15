@@ -58,7 +58,7 @@ namespace Smartstore.Core.Data.Migrations
         private readonly IVersionLoader _versionLoader;
         private readonly MigrationAssembly[] _assemblies;
         private IReadOnlyCollection<MigrationDescriptor> _migrations;
-        private Dictionary<long, int> _versionMap = new();
+        private readonly Dictionary<long, int> _versionMap = new();
 
         public MigrationTable(DbContextOptions<TContext> options, IVersionLoader versionLoader)
         {
