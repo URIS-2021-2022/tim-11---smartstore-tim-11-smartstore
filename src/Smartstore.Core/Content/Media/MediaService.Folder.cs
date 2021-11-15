@@ -220,7 +220,7 @@ namespace Smartstore.Core.Content.Media
             // Get all source files in one go
             var files = await _searcher.SearchFiles(
                 new MediaSearchQuery { FolderId = sourceNode.Value.Id }, 
-                MediaLoadFlags.AsNoTracking | MediaLoadFlags.WithTags).LoadAsync();
+                MediaLoad.AsNoTracking | MediaLoad.WithTags).LoadAsync();
 
             IDictionary<string, MediaFile> destFiles = null;
             HashSet<string> destNames = null;
@@ -229,7 +229,7 @@ namespace Smartstore.Core.Content.Media
             {
                 // Get all files in destination folder for faster dupe selection
                 destFiles = (await _searcher
-                    .SearchFiles(new MediaSearchQuery { FolderId = destNode.Value.Id }, MediaLoadFlags.None).LoadAsync())
+                    .SearchFiles(new MediaSearchQuery { FolderId = destNode.Value.Id }, MediaLoad.None).LoadAsync())
                     .ToDictionarySafe(x => x.Name);
 
                 // Make a HashSet from all file names in the destination folder for faster unique file name lookups

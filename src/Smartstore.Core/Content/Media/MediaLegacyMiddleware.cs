@@ -81,14 +81,14 @@ namespace Smartstore.Core.Content.Media
             if (mediaFileId.HasValue)
             {
                 /// Redirect legacy URL "/{pub}/image/234/file.png" to "/{pub}/234/catalog/path/to/file.png"
-                mediaFile = await mediaService.GetFileByIdAsync(mediaFileId.Value, MediaLoadFlags.AsNoTracking);
+                mediaFile = await mediaService.GetFileByIdAsync(mediaFileId.Value, MediaLoad.AsNoTracking);
             }
             else
             {
                 // Redirect legacy URL "/{tenant?}/uploaded/some/file.png" to "/file/1234/some/file.png"
                 mediaFile = await mediaService.GetFileByPathAsync(
                     SystemAlbumProvider.Files + "/" + path, 
-                    MediaLoadFlags.AsNoTracking);
+                    MediaLoad.AsNoTracking);
             }
 
             var url = mediaUrlGenerator.GenerateUrl(mediaFile, context.Request.QueryString, string.Empty, false);

@@ -15,7 +15,7 @@ namespace Smartstore.Core.Content.Media
     #region Enums
 
     [Flags]
-    public enum MediaLoadFlags
+    public enum MediaLoad
     {
         None = 0,
         WithBlob = 1 << 0,
@@ -148,13 +148,13 @@ namespace Smartstore.Core.Content.Media
         /// <param name="queryModifier">An optional modifier function for the LINQ query that was internally derived from <paramref name="query"/>. Can be null.</param>
         /// <param name="flags">Flags that affect the loading behaviour (eager-loading, tracking etc.)</param>
         /// <returns>The search result.</returns>
-        Task<MediaSearchResult> SearchFilesAsync(MediaSearchQuery query, Func<IQueryable<MediaFile>, IQueryable<MediaFile>> queryModifier, MediaLoadFlags flags = MediaLoadFlags.AsNoTracking);
+        Task<MediaSearchResult> SearchFilesAsync(MediaSearchQuery query, Func<IQueryable<MediaFile>, IQueryable<MediaFile>> queryModifier, MediaLoad flags = MediaLoad.AsNoTracking);
 
         Task<bool> FileExistsAsync(string path);
-        Task<MediaFileInfo> GetFileByPathAsync(string path, MediaLoadFlags flags = MediaLoadFlags.None);
-        Task<MediaFileInfo> GetFileByIdAsync(int id, MediaLoadFlags flags = MediaLoadFlags.None);
-        Task<MediaFileInfo> GetFileByNameAsync(int folderId, string fileName, MediaLoadFlags flags = MediaLoadFlags.None);
-        Task<List<MediaFileInfo>> GetFilesByIdsAsync(int[] ids, MediaLoadFlags flags = MediaLoadFlags.AsNoTracking);
+        Task<MediaFileInfo> GetFileByPathAsync(string path, MediaLoad flags = MediaLoad.None);
+        Task<MediaFileInfo> GetFileByIdAsync(int id, MediaLoad flags = MediaLoad.None);
+        Task<MediaFileInfo> GetFileByNameAsync(int folderId, string fileName, MediaLoad flags = MediaLoad.None);
+        Task<List<MediaFileInfo>> GetFilesByIdsAsync(int[] ids, MediaLoad flags = MediaLoad.AsNoTracking);
         Task<AsyncOut<string>> CheckUniqueFileNameAsync(string path);
         string CombinePaths(params string[] paths);
 

@@ -189,14 +189,14 @@ namespace Smartstore.Core.Messaging
                     var fileIds = combination.GetAssignedMediaIds();
                     if (fileIds?.Any() ?? false)
                     {
-                        file = await _mediaService.GetFileByIdAsync(fileIds[0], MediaLoadFlags.AsNoTracking);
+                        file = await _mediaService.GetFileByIdAsync(fileIds[0], MediaLoad.AsNoTracking);
                     }
                 }
             }
 
             if (file == null)
             {
-                file = await _mediaService.GetFileByIdAsync(product.MainPictureId ?? 0, MediaLoadFlags.AsNoTracking);
+                file = await _mediaService.GetFileByIdAsync(product.MainPictureId ?? 0, MediaLoad.AsNoTracking);
             }
 
             if (file == null && product.Visibility == ProductVisibility.Hidden && product.ParentGroupedProductId > 0)

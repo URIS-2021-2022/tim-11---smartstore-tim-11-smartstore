@@ -79,7 +79,7 @@ namespace Smartstore.Web.Controllers
                 return new EmptyResult();
 
             var mediaService = _mediaService.Value;
-            var msTileImage = await mediaService.GetFileByIdAsync(Convert.ToInt32(store.MsTileImageMediaFileId), MediaLoadFlags.AsNoTracking);
+            var msTileImage = await mediaService.GetFileByIdAsync(Convert.ToInt32(store.MsTileImageMediaFileId), MediaLoad.AsNoTracking);
             if (msTileImage == null)
                 return new EmptyResult();
 

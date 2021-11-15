@@ -178,7 +178,7 @@ namespace Smartstore.Web.Models.Cart
 
                         if (file?.MediaFile != null)
                         {
-                            var fileInfo = await _services.MediaService.GetFileByIdAsync(file.MediaFileId, MediaLoadFlags.AsNoTracking);
+                            var fileInfo = await _services.MediaService.GetFileByIdAsync(file.MediaFileId, MediaLoad.AsNoTracking);
 
                             bundleItemModel.ImageModel = new ImageModel
                             {

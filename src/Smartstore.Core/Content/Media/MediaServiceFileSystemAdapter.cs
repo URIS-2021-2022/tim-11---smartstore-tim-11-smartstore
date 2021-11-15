@@ -133,7 +133,7 @@ namespace Smartstore.Core.Content.Media
 
         public override async Task<IFile> GetFileAsync(string subpath)
         {
-            var file = await _mediaService.GetFileByPathAsync(subpath, MediaLoadFlags.AsNoTracking);
+            var file = await _mediaService.GetFileByPathAsync(subpath, MediaLoad.AsNoTracking);
             if (file == null)
             {
                 var mediaFile = new MediaFile

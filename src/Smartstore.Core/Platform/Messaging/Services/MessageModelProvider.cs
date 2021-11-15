@@ -454,7 +454,7 @@ namespace Smartstore.Core.Messaging
             Guard.NotNull(part, nameof(part));
 
             var host = messageContext.BaseUri.ToString();
-            var logoFile = await _services.MediaService.GetFileByIdAsync(messageContext.Store.LogoMediaFileId, MediaLoadFlags.AsNoTracking);
+            var logoFile = await _services.MediaService.GetFileByIdAsync(messageContext.Store.LogoMediaFileId, MediaLoad.AsNoTracking);
             
             var m = new Dictionary<string, object>
             {

@@ -106,7 +106,7 @@ namespace Smartstore.Core.Content.Media
                     return;
                 }
 
-                mediaFile = await mediaService.GetFileByIdAsync(mediaFileId, MediaLoadFlags.AsNoTracking);
+                mediaFile = await mediaService.GetFileByIdAsync(mediaFileId, MediaLoad.AsNoTracking);
                 if (mediaFile == null || mediaFile.FolderId == null || mediaFile.Deleted)
                 {
                     await NotFound(mediaFile?.MimeType);

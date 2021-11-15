@@ -81,7 +81,7 @@ namespace Smartstore.Core.Content.Media
         {
             Guard.NotNull(query, nameof(query));
 
-            var q = _searcher.PrepareQuery(query, MediaLoadFlags.None);
+            var q = _searcher.PrepareQuery(query, MediaLoad.None);
             return await q.CountAsync();
         }
 
@@ -134,7 +134,7 @@ namespace Smartstore.Core.Content.Media
         public async Task<MediaSearchResult> SearchFilesAsync(
             MediaSearchQuery query,
             Func<IQueryable<MediaFile>, IQueryable<MediaFile>> queryModifier,
-            MediaLoadFlags flags = MediaLoadFlags.AsNoTracking)
+            MediaLoad flags = MediaLoad.AsNoTracking)
         {
             Guard.NotNull(query, nameof(query));
 
@@ -163,7 +163,7 @@ namespace Smartstore.Core.Content.Media
             return false;
         }
 
-        public async Task<MediaFileInfo> GetFileByPathAsync(string path, MediaLoadFlags flags = MediaLoadFlags.None)
+        public async Task<MediaFileInfo> GetFileByPathAsync(string path, MediaLoad flags = MediaLoad.None)
         {
             Guard.NotEmpty(path, nameof(path));
 
@@ -182,14 +182,14 @@ namespace Smartstore.Core.Content.Media
             return null;
         }
 
-        public async Task<MediaFileInfo> GetFileByIdAsync(int id, MediaLoadFlags flags = MediaLoadFlags.None)
+        public async Task<MediaFileInfo> GetFileByIdAsync(int id, MediaLoad flags = MediaLoad.None)
         {
             if (id <= 0)
                 return null;
 
             MediaFile entity = null;
 
-            if (flags == MediaLoadFlags.None)
+            if (flags == MediaLoad.None)
             {
                 entity = await _db.MediaFiles.FindByIdAsync(id);
             }
@@ -208,7 +208,7 @@ namespace Smartstore.Core.Content.Media
             return null;
         }
 
-        public async Task<MediaFileInfo> GetFileByNameAsync(int folderId, string fileName, MediaLoadFlags flags = MediaLoadFlags.None)
+        public async Task<MediaFileInfo> GetFileByNameAsync(int folderId, string fileName, MediaLoad flags = MediaLoad.None)
         {
             Guard.IsPositive(folderId, nameof(folderId));
             Guard.NotEmpty(fileName, nameof(fileName));
@@ -226,7 +226,7 @@ namespace Smartstore.Core.Content.Media
             return null;
         }
 
-        public async Task<List<MediaFileInfo>> GetFilesByIdsAsync(int[] ids, MediaLoadFlags flags = MediaLoadFlags.AsNoTracking)
+        public async Task<List<MediaFileInfo>> GetFilesByIdsAsync(int[] ids, MediaLoad flags = MediaLoad.AsNoTracking)
         {
             Guard.NotNull(ids, nameof(ids));
 
@@ -273,7 +273,7 @@ namespace Smartstore.Core.Content.Media
                 Deleted = null
             };
 
-            var query = _searcher.PrepareQuery(q, MediaLoadFlags.AsNoTracking).Select(x => x.Name);
+            var query = _searcher.PrepareQuery(q, MediaLoad.AsNoTracking).Select(x => x.Name);
             var files = new HashSet<string>(await query.ToListAsync(), StringComparer.CurrentCultureIgnoreCase);
 
             if (_helper.CheckUniqueFileName(pathData.FileTitle, pathData.Extension, files, out var uniqueName))

@@ -297,7 +297,7 @@ namespace Smartstore.Core.Messaging
 
             if (fileIds.Any())
             {
-                var files = await _mediaService.GetFilesByIdsAsync(fileIds, MediaLoadFlags.AsNoTracking);
+                var files = await _mediaService.GetFilesByIdsAsync(fileIds, MediaLoad.AsNoTracking);
                 foreach (var file in files)
                 {
                     queuedEmail.Attachments.Add(new QueuedEmailAttachment

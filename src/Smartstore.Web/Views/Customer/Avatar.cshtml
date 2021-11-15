@@ -12,7 +12,7 @@
     ViewBag.PageTitle = T("Account.Avatar").Value;
 
     var fileId = Model?.Avatar?.FileId ?? 0;
-    var currentFile = await MediaService.GetFileByIdAsync(fileId, MediaLoadFlags.AsNoTracking);
+    var currentFile = await MediaService.GetFileByIdAsync(fileId, MediaLoad.AsNoTracking);
 }
 
 <div asp-validation-summary="ModelOnly"></div>
