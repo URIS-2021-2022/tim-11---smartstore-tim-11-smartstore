@@ -275,8 +275,6 @@ namespace Smartstore.Core.Catalog.Attributes.Modelling
             {
                 foreach (var value in values)
                 {
-                    // We cannot use GetVariantOptionIdByAlias. It doesn't necessarily provide a ProductVariantAttributeValue.Id associated with this product.
-                    //var optionId = _catalogSearchQueryAliasMapper.GetVariantOptionIdByAlias(value, attributeId, languageId);
                     var optionId = 0;
                     string valueAlias = null;
 
