@@ -251,7 +251,7 @@ namespace Smartstore.Core.Configuration
                 {
                     if (fastProp.IsSequenceType)
                     {
-                        if ((fastProp.GetValue(instance) as System.Collections.IEnumerable) != null)
+                        if (fastProp.GetValue(instance) is System.Collections.IEnumerable)
                         {
                             // Instance of IEnumerable<> was already created, most likely in the constructor of the settings concrete class.
                             // In this case we shouldn't let the EnumerableConverter create a new instance but keep this one.

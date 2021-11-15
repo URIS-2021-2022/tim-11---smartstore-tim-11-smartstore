@@ -10,7 +10,7 @@ namespace Smartstore.Data.Hooks
     {
         public HookableAttribute(bool isHookable)
         {
-            IsHookable = IsHookable;
+            IsHookable = isHookable;
         }
 
         public bool IsHookable

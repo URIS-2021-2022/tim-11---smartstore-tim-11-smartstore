@@ -62,7 +62,7 @@ namespace Smartstore.Core.Content.Menus
         {
             Guard.NotNull(currentPath, nameof(currentPath));
 
-            var state = NodePathState.Unknown;
+            var state = NodePathState.None;
 
             if (node.HasChildren)
             {

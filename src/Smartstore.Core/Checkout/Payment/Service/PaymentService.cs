@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Dasync.Collections;
@@ -425,11 +426,12 @@ namespace Smartstore.Core.Checkout.Payment
                 return creditCardNumber;
 
             var last4 = creditCardNumber.Substring(creditCardNumber.Length - 4, 4);
-            var maskedChars = string.Empty;
+            StringBuilder builder = new StringBuilder();
             for (var i = 0; i < creditCardNumber.Length - 4; i++)
             {
-                maskedChars += "*";
+                builder.Append("*");
             }
+            var maskedChars = builder.ToString();
             return maskedChars + last4;
         }
 

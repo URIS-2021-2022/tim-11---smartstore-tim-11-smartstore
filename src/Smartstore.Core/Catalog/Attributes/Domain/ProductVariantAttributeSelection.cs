@@ -33,7 +33,7 @@ namespace Smartstore.Core.Catalog.Attributes
         {
             var value = GetCustomAttributeValues(GIFTCARD_ATTRIBUTE_NAME)?.FirstOrDefault();
 
-            return value != null && value is GiftCardInfo info
+            return value is GiftCardInfo info
                 ? info
                 : null;
         }
