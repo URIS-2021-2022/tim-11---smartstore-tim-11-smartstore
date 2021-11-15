@@ -21,7 +21,7 @@ namespace Smartstore.Web.TagHelpers.Admin
     [Flags]
     public enum DataGridBorderStyle
     {
-        Borderless = 0,
+        None = 0,
         VerticalBorders = 1 << 0,
         HorizontalBorders = 1 << 1,
         Grid = VerticalBorders | HorizontalBorders
