@@ -24,8 +24,8 @@ namespace Smartstore.Core.Content.Media.Imaging
             ["h"] = (k, v) => ValidateSizeToken(k, v),
             ["size"] = (k, v) => ValidateSizeToken(k, v),
             ["q"] = (k, v) => ValidateQualityToken(k, v),
-            ["m"] = (k, v) => ValidateScaleModeToken(k, v),
-            ["pos"] = (k, v) => ValidateAnchorPosToken(k, v)
+            ["m"] = (k, v) => ValidateScaleModeToken(v),
+            ["pos"] = (k, v) => ValidateAnchorPosToken(v)
         };
 
         public ProcessImageQuery()
@@ -292,12 +292,12 @@ namespace Smartstore.Core.Content.Media.Imaging
             return uint.TryParse(value, out var q) && q <= 100;
         }
 
-        private static bool ValidateScaleModeToken(string key, string value)
+        private static bool ValidateScaleModeToken(string value)
         {
             return _validScaleModes.Contains(value);
         }
 
-        private static bool ValidateAnchorPosToken(string key, string value)
+        private static bool ValidateAnchorPosToken(string value)
         {
             return _validAnchorPositions.Contains(value);
         }
