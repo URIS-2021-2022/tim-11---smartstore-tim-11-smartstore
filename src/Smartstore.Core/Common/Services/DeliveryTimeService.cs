@@ -169,12 +169,10 @@ namespace Smartstore.Core.Common.Services
             Guard.NotNegative(days, nameof(days));
 
             // now.Hour: 0-23. TodayDeliveryHour: 1-24.
-            if (_shippingSettings.TodayShipmentHour.HasValue && date.Hour < _shippingSettings.TodayShipmentHour)
+            if ((_shippingSettings.TodayShipmentHour.HasValue && date.Hour < _shippingSettings.TodayShipmentHour)&&
+                ((date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday) || !_shippingSettings.DeliveryOnWorkweekDaysOnly))
             {
-                if ((date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday) || !_shippingSettings.DeliveryOnWorkweekDaysOnly)
-                {
-                    days -= 1;
-                }
+                days -= 1;
             }
 
             // Normalization. Do not support today delivery.

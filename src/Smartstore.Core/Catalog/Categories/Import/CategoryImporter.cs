@@ -423,8 +423,6 @@ namespace Smartstore.Core.DataExchange.Import
                 return (ImporterCargoData)value;
             }
 
-            var catalogAlbumId = _folderService.GetNodeByPath(SystemAlbumProvider.Catalog).Value.Id;
-
             var categoryTemplates = await _db.CategoryTemplates
                 .AsNoTracking()
                 .OrderBy(x => x.DisplayOrder)

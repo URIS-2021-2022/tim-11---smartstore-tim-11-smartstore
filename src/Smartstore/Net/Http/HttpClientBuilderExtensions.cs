@@ -31,7 +31,8 @@ namespace Smartstore.Net.Http
             return builder.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler 
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-            });
+                 
+                } );
         }
 
         /// <summary>

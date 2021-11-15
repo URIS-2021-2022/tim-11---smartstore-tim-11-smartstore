@@ -107,9 +107,9 @@ namespace Smartstore.Core.Content.Blocks
 			return sourceEntity.Model;
 		}
 
-		public Task RenderAsync(IBlockContainer element, IEnumerable<string> templates, IHtmlHelper htmlHelper)
+		public Task RenderAsync(IBlockContainer element, IEnumerable<string> templates, IHtmlHelper htmlHeper)
 		{
-			return RenderCoreAsync(element, templates, htmlHelper, htmlHelper.ViewContext.Writer);
+			return RenderCoreAsync(element, templates, htmlHeper, htmlHeper.ViewContext.Writer);
 		}
 
 		public async Task<IHtmlContent> ToHtmlContentAsync(IBlockContainer element, IEnumerable<string> templates, IHtmlHelper htmlHelper)

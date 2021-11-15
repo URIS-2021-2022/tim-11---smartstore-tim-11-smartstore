@@ -6,9 +6,9 @@ namespace Smartstore.Core.Seo.Routing
 {
     public class DefaultSlugRouter : SlugRouter
     {
-        public override RouteValueDictionary GetRouteValues(UrlRecord urlRecord, RouteValueDictionary values)
+        public override RouteValueDictionary GetRouteValues(UrlRecord entity, RouteValueDictionary values)
         {
-            switch (urlRecord.EntityName.ToLowerInvariant())
+            switch (entity.EntityName.ToLowerInvariant())
             {
                 case "product":
                     return new RouteValueDictionary
@@ -16,8 +16,8 @@ namespace Smartstore.Core.Seo.Routing
                         { "area", string.Empty },
                         { "controller", "Product" },
                         { "action", "ProductDetails" },
-                        { "productId", urlRecord.EntityId },
-                        { "entity", urlRecord }
+                        { "productId", entity.EntityId },
+                        { "entity", entity }
                     };
                 case "category":
                     return new RouteValueDictionary
@@ -25,8 +25,8 @@ namespace Smartstore.Core.Seo.Routing
                         { "area", string.Empty },
                         { "controller", "Catalog" },
                         { "action", "Category" },
-                        { "categoryId", urlRecord.EntityId },
-                        { "entity", urlRecord }
+                        { "categoryId", entity.EntityId },
+                        { "entity", entity }
                     };
                 case "manufacturer":
                     return new RouteValueDictionary
@@ -34,8 +34,8 @@ namespace Smartstore.Core.Seo.Routing
                         { "area", string.Empty },
                         { "controller", "Catalog" },
                         { "action", "Manufacturer" },
-                        { "manufacturerId", urlRecord.EntityId },
-                        { "entity", urlRecord }
+                        { "manufacturerId", entity.EntityId },
+                        { "entity", entity }
                     };
                 case "topic":
                     return new RouteValueDictionary
@@ -43,8 +43,8 @@ namespace Smartstore.Core.Seo.Routing
                         { "area", string.Empty },
                         { "controller", "Topic" },
                         { "action", "TopicDetails" },
-                        { "topicId", urlRecord.EntityId },
-                        { "entity", urlRecord }
+                        { "topicId", entity.EntityId },
+                        { "entity", entity }
                     };
             }
 

@@ -231,7 +231,7 @@ namespace Smartstore.IO
                 if (checkRead && readPermissions.Contains(userFilePermission))
                     return true;
 
-                return (checkWrite || checkModify || checkDelete) & writePermissions.Contains(userFilePermission);
+                return (checkWrite || checkModify || checkDelete) && writePermissions.Contains(userFilePermission);
             }
         }
     }

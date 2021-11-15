@@ -37,13 +37,12 @@ namespace Smartstore.Core.Catalog.Discounts
             foreach (var discount in discounts)
             {
                 var currentDiscountValue = discount.GetDiscountAmount(amount);
-                if (currentDiscountValue != decimal.Zero)
+                if ((currentDiscountValue != decimal.Zero) && (!maximumDiscountValue.HasValue || currentDiscountValue > maximumDiscountValue))
                 {
-                    if (!maximumDiscountValue.HasValue || currentDiscountValue > maximumDiscountValue)
-                    {
+                  
                         maximumDiscountValue = currentDiscountValue;
                         preferredDiscount = discount;
-                    }
+                   
                 }
             }
 

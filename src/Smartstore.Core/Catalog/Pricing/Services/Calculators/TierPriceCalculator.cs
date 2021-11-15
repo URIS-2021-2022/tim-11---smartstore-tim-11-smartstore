@@ -36,9 +36,7 @@ namespace Smartstore.Core.Catalog.Pricing.Calculators
 
             if (processTierPrices && context.MinTierPrice.HasValue)
             {
-                // Wrong result:
-                //context.FinalPrice = Math.Min(context.FinalPrice, context.MinTierPrice.Value);
-
+               
                 // Apply the minimum tier price if it achieves a lower price than the discounted FinalPrice
                 // but exclude additional charge from comparing.
                 context.FinalPrice -= context.AdditionalCharge;
