@@ -154,7 +154,13 @@ namespace Smartstore.Core.Catalog.Attributes.Modelling
                 {
                     return new DateTime(year, month, day);
                 }
-                catch { }
+                catch {
+                    //Empty catch block.
+                    //Silent exception usually empty try-catch is a bad idea because you are silently swallowing an error condition
+                    //and then continuing execution. Occasionally this may be the right thing to do.
+                    //Empty catch to is sometimes used to silence the problem. 
+                    //In this case inputing date will return new datetime, if not, than it will return null.
+                }
             }
 
             return null;
