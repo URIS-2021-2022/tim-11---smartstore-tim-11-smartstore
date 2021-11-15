@@ -31,7 +31,7 @@ Smartstore.Admin = {
             parent = parentSelector ? $(parentSelector) : checkbox.closest('.multi-store-setting-group').find('> .multi-store-setting-control'),
             checked = checkbox.is(':checked');
 
-        parent.find('input:not([type=hidden]), select, textarea').each(function (i, el) {
+        parent.find('input:not([type=hidden]), select, textarea').each(function (i) {
             var input = $(el);
             var tbox = input.data('tTextBox');
 
