@@ -101,7 +101,6 @@ namespace Smartstore.Core.Content.Media
 
                             context.Exception = ex;
                             context.Executed = true;
-                            return;
                         }
                         finally
                         {
