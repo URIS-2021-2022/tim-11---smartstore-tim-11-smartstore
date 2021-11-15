@@ -24,7 +24,7 @@ namespace Smartstore.Web.Components
             {
                 o.ExpiresIn(TimeSpan.FromDays(1));
 
-                var logo = await _mediaService.GetFileByIdAsync(store.LogoMediaFileId, MediaLoadFlags.AsNoTracking);
+                var logo = await _mediaService.GetFileByIdAsync(store.LogoMediaFileId, MediaLoad.AsNoTracking);
 
                 var model = new ShopLogoModel
                 {

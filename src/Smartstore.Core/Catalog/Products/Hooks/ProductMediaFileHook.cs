@@ -61,17 +61,13 @@ namespace Smartstore.Core.Catalog.Products
                         .Where(x => productIdsChunk.Contains(x.ProductId) && !string.IsNullOrEmpty(x.AssignedMediaFileIds))
                         .ToListAsync(cancelToken);
 
-                    foreach (var combination in combinations)
+                    foreach (var combination in combinations.Where(c => deletedMediaIds.ContainsKey(c.ProductId)))
                     {
-                        if (deletedMediaIds.ContainsKey(combination.ProductId))
-                        {
-                            var newMediaIds = combination
-                                .GetAssignedMediaIds()
-                                .Except(deletedMediaIds[combination.ProductId])
-                                .ToArray();
-
-                            combination.SetAssignedMediaIds(newMediaIds);
-                        }
+                        var newMediaIds = combination
+                            .GetAssignedMediaIds()
+                            .Except(deletedMediaIds[combination.ProductId])
+                            .ToArray();
+                        combination.SetAssignedMediaIds(newMediaIds);
                     }
 
                     await _db.SaveChangesAsync(cancelToken);

@@ -125,7 +125,7 @@ namespace Smartstore
 
         public static bool IsPredefinedType(this Type type)
         {
-            if ((!IsPredefinedSimpleType(type) && !IsPredefinedGenericType(type)) && ((type != typeof(byte[]))))
+            if ((!IsPredefinedSimpleType(type) && !IsPredefinedGenericType(type)) && (type != typeof(byte[])))
             {
                 return (string.Compare(type.FullName, "System.Xml.Linq.XElement", StringComparison.Ordinal) == 0);
             }

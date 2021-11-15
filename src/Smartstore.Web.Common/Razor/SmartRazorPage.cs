@@ -27,7 +27,7 @@ namespace Smartstore.Web.Razor
         private IUserAgent _userAgent;
         private ILinkResolver _linkResolver;
 
-        public SmartRazorPage()
+        protected SmartRazorPage()
         {
         }
 

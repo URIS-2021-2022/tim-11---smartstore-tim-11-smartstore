@@ -27,7 +27,7 @@ namespace Smartstore.Data.MySql
         {
         }
 
-        private string GetDatabaseSizeSql(string database)
+        private static string GetDatabaseSizeSql(string database)
             => $@"SELECT table_schema AS 'Database', ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) AS 'SizeMB' 
                 FROM information_schema.TABLES
                 WHERE table_schema = '{database}'

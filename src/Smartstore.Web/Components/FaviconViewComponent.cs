@@ -32,7 +32,7 @@ namespace Smartstore.Web.Components
                 };
 
                 // PngIcon 16x16(browser tabs), 32x32(Taskbar), 96x96(Desktop), 196x196(Android Chrome) 
-                var pngIcon = await _mediaService.GetFileByIdAsync(store.PngIconMediaFileId ?? 0, MediaLoadFlags.AsNoTracking);
+                var pngIcon = await _mediaService.GetFileByIdAsync(store.PngIconMediaFileId ?? 0, MediaLoad.AsNoTracking);
                 if (pngIcon != null)
                 {
                     var pngSizes = new[] { 16, 32, 96, 196 };
@@ -40,7 +40,7 @@ namespace Smartstore.Web.Components
                 }
 
                 // AppleTouchIcon
-                var appleTouchIcon = await _mediaService.GetFileByIdAsync(store.AppleTouchIconMediaFileId ?? 0, MediaLoadFlags.AsNoTracking);
+                var appleTouchIcon = await _mediaService.GetFileByIdAsync(store.AppleTouchIconMediaFileId ?? 0, MediaLoad.AsNoTracking);
                 if (appleTouchIcon != null)
                 {
                     var appleTouchSizes = new[] { 57, 60, 72, 76, 114, 120, 144, 152, 180 };

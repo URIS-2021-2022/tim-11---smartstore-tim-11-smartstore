@@ -111,11 +111,11 @@ namespace Smartstore.Core.Content.Media.Imaging
             cachedImage.Exists = file.Exists;
         }
 
-        public virtual async Task DeleteAsync(MediaFile mediaFile)
+        public virtual async Task DeleteAsync(MediaFile picture)
         {
-            Guard.NotNull(mediaFile, nameof(mediaFile));
+            Guard.NotNull(picture, nameof(picture));
 
-            var filter = string.Format("{0}*.*", mediaFile.Id.ToString(IdFormatString));
+            var filter = string.Format("{0}*.*", picture.Id.ToString(IdFormatString));
 
             foreach (var file in await _fileSystem.EnumerateFilesAsync(_thumbsRootDir, filter, deep: true).AsyncToArray())
             {

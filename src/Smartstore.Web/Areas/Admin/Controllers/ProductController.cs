@@ -873,7 +873,7 @@ namespace Smartstore.Admin.Controllers
 
             var response = new List<dynamic>();
             var existingFiles = product.ProductPictures.Select(x => x.MediaFileId).ToList();
-            var files = (await _mediaService.GetFilesByIdsAsync(ids, MediaLoadFlags.AsNoTracking)).ToDictionary(x => x.Id);
+            var files = (await _mediaService.GetFilesByIdsAsync(ids, MediaLoad.AsNoTracking)).ToDictionary(x => x.Id);
 
             foreach (var id in ids)
             {

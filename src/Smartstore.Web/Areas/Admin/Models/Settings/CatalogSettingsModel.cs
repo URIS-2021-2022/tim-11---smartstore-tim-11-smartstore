@@ -31,7 +31,7 @@ namespace Smartstore.Admin.Models
         public bool ShowDiscountSign { get; set; }
 
         [LocalizedDisplay("*PriceDisplayStyle")]
-        public PriceDisplayStyle PriceDisplayStyle { get; set; }
+        public PriceDisplayStyles PriceDisplayStyle { get; set; }
 
         [LocalizedDisplay("*DisplayTextForZeroPrices")]
         public bool DisplayTextForZeroPrices { get; set; }

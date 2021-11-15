@@ -7,9 +7,9 @@ namespace Smartstore.Web.Bundling
 {
     public static class BundleProcessorCodes
     {
-        public static string Minify = "min";
-        public static string Autoprefix = "autoprefix";
-        public static string UrlRewrite = "urlrewrite";
+        public const string Minify = "min";
+        public const string Autoprefix = "autoprefix";
+        public const string UrlRewrite = "urlrewrite";
     }
 
     public interface IBundleProcessor

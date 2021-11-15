@@ -203,7 +203,7 @@ namespace Smartstore.Core.DataExchange.Export
             {
                 // Reduce traffic and do not export default avatar.
                 var fileId = genericAttributes.FirstOrDefault(x => x.Key == SystemCustomerAttributeNames.AvatarPictureId)?.Value?.ToInt() ?? 0;
-                var file = await _mediaService.GetFileByIdAsync(fileId, MediaLoadFlags.AsNoTracking);
+                var file = await _mediaService.GetFileByIdAsync(fileId, MediaLoad.AsNoTracking);
                 if (file != null)
                 {
                     dynObject._AvatarPictureUrl = _mediaService.GetUrl(file, new ProcessImageQuery { MaxSize = _mediaSettings.AvatarPictureSize }, ctx.Store.GetHost());

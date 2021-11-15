@@ -53,7 +53,7 @@ namespace Smartstore.Core.Content.Menus.Hooks
             if (!evict)
                 return HookResult.Void; // Perf
 
-            if (evict && entry.InitialState == Smartstore.Data.EntityState.Modified)
+            if (entry.InitialState == Smartstore.Data.EntityState.Modified)
             {
                 var modProps = entry.Entry.GetModifiedProperties();
                 evict = modProps.Keys.Any(x => _toxicProps.Contains(x));

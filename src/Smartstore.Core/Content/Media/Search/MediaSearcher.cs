@@ -23,13 +23,13 @@ namespace Smartstore.Core.Content.Media
             _folderService = folderService;
         }
 
-        public virtual IPagedList<MediaFile> SearchFiles(MediaSearchQuery query, MediaLoadFlags flags = MediaLoadFlags.AsNoTracking)
+        public virtual IPagedList<MediaFile> SearchFiles(MediaSearchQuery query, MediaLoad flags = MediaLoad.AsNoTracking)
         {
             var q = PrepareQuery(query, flags);
             return q.ToPagedList(query.PageIndex, query.PageSize);
         }
 
-        public virtual IQueryable<MediaFile> PrepareQuery(MediaSearchQuery query, MediaLoadFlags flags)
+        public virtual IQueryable<MediaFile> PrepareQuery(MediaSearchQuery query, MediaLoad flags)
         {
             Guard.NotNull(query, nameof(query));
 
@@ -222,34 +222,34 @@ namespace Smartstore.Core.Content.Media
             return q;
         }
 
-        public virtual IQueryable<MediaFile> ApplyLoadFlags(IQueryable<MediaFile> query, MediaLoadFlags flags)
+        public virtual IQueryable<MediaFile> ApplyLoadFlags(IQueryable<MediaFile> query, MediaLoad flags)
         {
-            if (flags == MediaLoadFlags.None)
+            if (flags == MediaLoad.None)
             {
                 return query;
             }
 
-            if (flags.HasFlag(MediaLoadFlags.AsNoTracking))
+            if (flags.HasFlag(MediaLoad.AsNoTracking))
             {
                 query = query.AsNoTracking();
             }
 
-            if (flags.HasFlag(MediaLoadFlags.WithBlob))
+            if (flags.HasFlag(MediaLoad.WithBlob))
             {
                 query = query.Include(x => x.MediaStorage);
             }
 
-            if (flags.HasFlag(MediaLoadFlags.WithFolder))
+            if (flags.HasFlag(MediaLoad.WithFolder))
             {
                 query = query.Include(x => x.Folder);
             }
 
-            if (flags.HasFlag(MediaLoadFlags.WithTags))
+            if (flags.HasFlag(MediaLoad.WithTags))
             {
                 query = query.Include(x => x.Tags);
             }
 
-            if (flags.HasFlag(MediaLoadFlags.WithTracks))
+            if (flags.HasFlag(MediaLoad.WithTracks))
             {
                 query = query.Include(x => x.Tracks);
             }

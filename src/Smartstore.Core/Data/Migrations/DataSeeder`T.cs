@@ -25,7 +25,7 @@ namespace Smartstore.Core.Data.Migrations
     {
         private IUrlService _urlService;
 
-        public DataSeeder(IApplicationContext appContext, ILogger logger)
+        protected DataSeeder(IApplicationContext appContext, ILogger logger)
         {
             ApplicationContext = Guard.NotNull(appContext, nameof(appContext));
 

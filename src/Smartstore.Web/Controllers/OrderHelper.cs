@@ -100,7 +100,7 @@ namespace Smartstore.Web.Controllers
                 var mediaIds = combination.GetAssignedMediaIds();
                 if (mediaIds.Any())
                 {
-                    file = await _mediaService.GetFileByIdAsync(mediaIds[0], MediaLoadFlags.AsNoTracking);
+                    file = await _mediaService.GetFileByIdAsync(mediaIds[0], MediaLoad.AsNoTracking);
                 }
             }
 

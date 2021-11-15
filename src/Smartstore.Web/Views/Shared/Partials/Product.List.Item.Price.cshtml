@@ -8,7 +8,7 @@
     var list = Model.Parent;
     var artPriceClasses = "art-price";
     var deliveryPresentation = list.DeliveryTimesPresentation;
-    if (Model.PriceDisplayStyle == PriceDisplayStyle.BadgeAll || (Model.PriceDisplayStyle == PriceDisplayStyle.BadgeFreeProductsOnly && Model.Price.Price == 0))
+    if (Model.PriceDisplayStyle == PriceDisplayStyles.BadgeAll || (Model.PriceDisplayStyle == PriceDisplayStyles.BadgeFreeProductsOnly && Model.Price.Price == 0))
     {
         if (Model.Price.SavingAmount.HasValue)
         {

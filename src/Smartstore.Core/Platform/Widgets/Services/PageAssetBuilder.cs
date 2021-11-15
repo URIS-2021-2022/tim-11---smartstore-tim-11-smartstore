@@ -146,7 +146,6 @@ namespace Smartstore.Core.Widgets
                         case PageTitleSeoAdjustment.PagenameAfterStorename:
                             result = string.Join(_seoSettings.PageTitleSeparator, _seoSettings.GetLocalizedSetting(x => x.MetaTitle).Value, currentTitle);
                             break;
-                        case PageTitleSeoAdjustment.StorenameAfterPagename:
                         default:
                             result = string.Join(_seoSettings.PageTitleSeparator, currentTitle, _seoSettings.GetLocalizedSetting(x => x.MetaTitle).Value);
                             break;

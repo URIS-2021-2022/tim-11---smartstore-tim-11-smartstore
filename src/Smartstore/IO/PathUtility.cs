@@ -8,7 +8,7 @@ namespace Smartstore.IO
 {
     public static class PathUtility
     {
-        public static char[] PathSeparators = (new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar }).Distinct().ToArray();
+        public static readonly char[] PathSeparators = (new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar }).Distinct().ToArray();
         public const string CurrentDirectoryToken = ".";
         public const string ParentDirectoryToken = "..";
 

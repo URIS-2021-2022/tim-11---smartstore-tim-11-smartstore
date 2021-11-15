@@ -11,7 +11,7 @@ namespace Smartstore.Core.Content.Media
     public static class IMediaServiceExtensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static async Task<MediaSearchResult> SearchFilesAsync(this IMediaService service, MediaSearchQuery query, MediaLoadFlags flags = MediaLoadFlags.AsNoTracking)
+        public static async Task<MediaSearchResult> SearchFilesAsync(this IMediaService service, MediaSearchQuery query, MediaLoad flags = MediaLoad.AsNoTracking)
         {
             return await service.SearchFilesAsync(query, null, flags);
         }
@@ -19,7 +19,7 @@ namespace Smartstore.Core.Content.Media
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static async Task<string> GetUrlAsync(this IMediaService service, int? fileId, ProcessImageQuery imageQuery, string host = null, bool doFallback = true)
         {
-            return service.GetUrl(await service.GetFileByIdAsync(fileId ?? 0, MediaLoadFlags.AsNoTracking), imageQuery, host, doFallback);
+            return service.GetUrl(await service.GetFileByIdAsync(fileId ?? 0, MediaLoad.AsNoTracking), imageQuery, host, doFallback);
         }
 
         public static async Task<string> GetUrlAsync(this IMediaService service, int? fileId, int thumbnailSize, string host = null, bool doFallback = true)
@@ -28,7 +28,7 @@ namespace Smartstore.Core.Content.Media
                 ? new ProcessImageQuery { MaxSize = thumbnailSize }
                 : null;
 
-            return service.GetUrl(await service.GetFileByIdAsync(fileId ?? 0, MediaLoadFlags.AsNoTracking), query, host, doFallback);
+            return service.GetUrl(await service.GetFileByIdAsync(fileId ?? 0, MediaLoad.AsNoTracking), query, host, doFallback);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -62,7 +62,7 @@ namespace Smartstore.Core.Content.Media
             else
             {
                 // Get file from DB
-                var mediaFile = await MediaService.GetFileByIdAsync(MediaFileId, MediaLoadFlags.AsNoTracking);
+                var mediaFile = await MediaService.GetFileByIdAsync(MediaFileId, MediaLoad.AsNoTracking);
 
                 // File must exist
                 if (mediaFile != null)

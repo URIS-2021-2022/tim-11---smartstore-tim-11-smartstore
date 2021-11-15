@@ -23,19 +23,6 @@ namespace Smartstore.Core.Content.Menus
             private readonly IPageAssetBuilder _assetBuilder;
             private readonly IDisplayHelper _displayHelper;
 
-            public MenuFilter(
-                IMenuStorage menuStorage,
-                IMenuService menuService,
-                IWidgetProvider widgetProvider,
-                IPageAssetBuilder assetBuilder,
-                IDisplayHelper displayHelper)
-            {
-                _menuStorage = menuStorage;
-                _menuService = menuService;
-                _widgetProvider = widgetProvider;
-                _assetBuilder = assetBuilder;
-                _displayHelper = displayHelper;
-            }
 
             /// <summary>
             /// Find the selected node in any registered menu

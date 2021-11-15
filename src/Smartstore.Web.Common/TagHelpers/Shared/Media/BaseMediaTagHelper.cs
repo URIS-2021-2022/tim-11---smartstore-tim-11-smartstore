@@ -80,7 +80,7 @@ namespace Smartstore.Web.TagHelpers.Shared
 
         protected virtual async Task PrepareModelAsync()
         {
-            File ??= await MediaService.GetFileByIdAsync(FileId ?? 0, MediaLoadFlags.AsNoTracking);
+            File ??= await MediaService.GetFileByIdAsync(FileId ?? 0, MediaLoad.AsNoTracking);
         }
 
         protected virtual Task ProcessMediaAsync(TagHelperContext context, TagHelperOutput output)

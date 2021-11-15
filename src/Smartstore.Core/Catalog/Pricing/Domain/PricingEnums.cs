@@ -53,7 +53,7 @@ namespace Smartstore.Core.Catalog.Pricing
     /// Represents the style in which prices are displayed.
     /// </summary>
     [Flags]
-    public enum PriceDisplayStyle
+    public enum PriceDisplayStyles
     {
         /// <summary>
         /// Display prices without badges

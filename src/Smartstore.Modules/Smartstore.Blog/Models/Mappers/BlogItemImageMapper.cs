@@ -29,7 +29,7 @@ namespace Smartstore.Blog.Models.Mappers
             Guard.NotNull(to, nameof(to));
 
             var fileId = Convert.ToInt32(parameters?.FileId as int?);
-            var file = await _mediaService.GetFileByIdAsync(fileId, MediaLoadFlags.AsNoTracking);
+            var file = await _mediaService.GetFileByIdAsync(fileId, MediaLoad.AsNoTracking);
 
             to.File = file;
             to.ThumbSize = MediaSettings.ThumbnailSizeLg;

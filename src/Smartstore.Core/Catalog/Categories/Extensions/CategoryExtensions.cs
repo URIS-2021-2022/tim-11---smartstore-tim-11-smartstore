@@ -155,7 +155,7 @@ namespace Smartstore.Core.Catalog.Categories
             {
                 sb.Append(" (");
                 sb.Append(cat.Alias);
-                sb.Append(")");
+                sb.Append(')');
             }
 
             return sb.ToString();

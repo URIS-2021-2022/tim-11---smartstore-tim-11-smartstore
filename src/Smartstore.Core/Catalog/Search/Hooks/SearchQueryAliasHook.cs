@@ -65,7 +65,7 @@ namespace Smartstore.Core.Catalog.Search
             var type = entry.EntityType;
             var entity = entry.Entity;
 
-            if (type == typeof(SpecificationAttribute))
+            if (type == typeof(SpecificationAttribute) || type == typeof(ProductAttribute))
             {
                 if (await HasAliasDuplicate<ProductAttribute, SpecificationAttribute>(entry, entity, cancelToken))
                 {
@@ -109,18 +109,6 @@ namespace Smartstore.Core.Catalog.Search
                     cancelToken))
                 {
                     return RevertChanges(entry);
-                }
-            }
-            else if (type == typeof(ProductAttribute))
-            {
-                if (await HasAliasDuplicate<ProductAttribute, SpecificationAttribute>(entry, entity, cancelToken))
-                {
-                    return RevertChanges(entry);
-                }
-
-                if (IsPropertyModified(entry, "Alias"))
-                {
-                    await _catalogSearchQueryAliasMapper.Value.ClearAttributeCacheAsync();
                 }
             }
             else if (entity is ProductAttributeOption attributeOption)

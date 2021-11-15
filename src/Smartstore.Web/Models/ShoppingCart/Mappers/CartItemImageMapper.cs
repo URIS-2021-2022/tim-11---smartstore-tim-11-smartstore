@@ -86,7 +86,7 @@ namespace Smartstore.Web.Models.Cart
                     var fileIds = combination.GetAssignedMediaIds();
                     if (fileIds.Any())
                     {
-                        file = await _mediaService.GetFileByIdAsync(fileIds[0], MediaLoadFlags.AsNoTracking);
+                        file = await _mediaService.GetFileByIdAsync(fileIds[0], MediaLoad.AsNoTracking);
                     }
                 }
             }

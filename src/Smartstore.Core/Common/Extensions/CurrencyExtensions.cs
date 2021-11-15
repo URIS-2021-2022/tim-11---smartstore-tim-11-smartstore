@@ -51,7 +51,6 @@ namespace Smartstore
                 case CurrencyRoundingRule.AlwaysRoundUp:
                     value = value.RoundToNearest(currency.RoundOrderTotalDenominator, true);
                     break;
-                case CurrencyRoundingRule.RoundMidpointDown:
                 default:
                     value = value.RoundToNearest(currency.RoundOrderTotalDenominator, MidpointRounding.ToEven);
                     break;

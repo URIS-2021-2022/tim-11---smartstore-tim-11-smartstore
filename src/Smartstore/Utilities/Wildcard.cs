@@ -164,7 +164,7 @@ namespace Smartstore.Utilities
             {
                 if (radix != 1)
                 {
-                    return ((maximum / (int)Math.Pow(10, radix - 1))) * (int)Math.Pow(10, radix - 1) - 1;
+                    return (maximum / (int)Math.Pow(10, radix - 1)) * (int)Math.Pow(10, radix - 1) - 1;
                 }
                 //end is reached
                 return maximum;

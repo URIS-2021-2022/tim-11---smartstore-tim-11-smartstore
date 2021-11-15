@@ -22,6 +22,8 @@ namespace Smartstore.Redis.Caching
         private readonly string _cachePrefix;
         private readonly string _keyPrefix;
 
+        private const bool CheckLicense = true;
+
         public RedisCacheStore(RedisConfiguration configuration, IRedisConnectionFactory connectionFactory, IJsonSerializer serializer)
         {
             // TODO: (core) Build versionStr from SmartstoreVersion class
@@ -443,7 +445,7 @@ namespace Smartstore.Redis.Caching
 
         private bool RedisAction(bool condition, Action action)
         {
-            if (condition && CheckLicense() && CheckConnection())
+            if (condition && CheckLicense && CheckConnection())
             {
                 action();
                 return true;
@@ -454,7 +456,7 @@ namespace Smartstore.Redis.Caching
 
         private async Task<bool> RedisActionAsync(bool condition, Func<Task> action)
         {
-            if (condition && CheckLicense() && CheckConnection())
+            if (condition && CheckLicense && CheckConnection())
             {
                 await action();
                 return true;
@@ -471,11 +473,6 @@ namespace Smartstore.Redis.Caching
         private Task PostMessageAsync(string message)
         {
             return _messageBus.PublishAsync("cache", message);
-        }
-
-        private bool CheckLicense()
-        {
-            return true;
         }
 
         private bool CheckConnection()

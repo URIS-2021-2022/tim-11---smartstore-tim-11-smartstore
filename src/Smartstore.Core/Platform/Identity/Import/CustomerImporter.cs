@@ -432,7 +432,7 @@ namespace Smartstore.Core.DataExchange.Import
 
                     if (stream?.Length > 0)
                     {
-                        var file = await _services.MediaService.GetFileByIdAsync(row.Entity.GenericAttributes.AvatarPictureId ?? 0, MediaLoadFlags.AsNoTracking);
+                        var file = await _services.MediaService.GetFileByIdAsync(row.Entity.GenericAttributes.AvatarPictureId ?? 0, MediaLoad.AsNoTracking);
                         if (file != null)
                         {
                             var isEqualData = await _services.MediaService.FindEqualFileAsync(stream, new[] { file.File }, true);

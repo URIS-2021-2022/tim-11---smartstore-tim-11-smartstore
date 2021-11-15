@@ -246,7 +246,7 @@ namespace Smartstore.Web.Controllers
                 }
                 else if (brand.MediaFileId.HasValue)
                 {
-                    file = await _mediaService.GetFileByIdAsync(brand.MediaFileId.Value, MediaLoadFlags.AsNoTracking);
+                    file = await _mediaService.GetFileByIdAsync(brand.MediaFileId.Value, MediaLoad.AsNoTracking);
                 }          
             }
 
@@ -500,7 +500,7 @@ namespace Smartstore.Web.Controllers
                 }
                 else if (category.MediaFileId.HasValue)
                 {
-                    file = await _mediaService.GetFileByIdAsync(category.MediaFileId.Value, MediaLoadFlags.AsNoTracking);
+                    file = await _mediaService.GetFileByIdAsync(category.MediaFileId.Value, MediaLoad.AsNoTracking);
                 }
             }
 

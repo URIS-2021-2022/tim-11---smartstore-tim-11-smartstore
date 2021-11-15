@@ -142,21 +142,18 @@ namespace Smartstore.ModuleBuilder
                     di.Delete(true);
                 }
 
-                if (entry is FileInfo fi)
-                {
-                    if (entry.Name.StartsWith("Smartstore.Data.") 
+                if (entry is FileInfo fi && ((entry.Name.StartsWith("Smartstore.Data.")
                         || entry.Name.EndsWith(".StaticWebAssets.xml", StringComparison.OrdinalIgnoreCase)
-                        || entry.Name.EndsWith(".staticwebassets.runtime.json", StringComparison.OrdinalIgnoreCase))
+                        || entry.Name.EndsWith(".staticwebassets.runtime.json", StringComparison.OrdinalIgnoreCase))))
                     {
                         fi.Delete();
                     }
-                }
             }
         }
 
         class ModuleDescriptor
         {
-            public string[] PrivateReferences { get; set; }
+            public string[] PrivateReferences { get; }
         }
     }
 }

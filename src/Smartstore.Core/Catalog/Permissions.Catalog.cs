@@ -9,7 +9,7 @@
 
             public static class Product
             {
-                public const string Self = "catalog.product";
+                public const string SelfProduct = "catalog.product";
                 public const string Read = "catalog.product.read";
                 public const string Update = "catalog.product.update";
                 public const string Create = "catalog.product.create";

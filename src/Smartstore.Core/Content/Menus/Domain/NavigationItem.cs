@@ -14,7 +14,7 @@ namespace Smartstore.Core.Content.Menus
         private string _routeName;
         private string _url;
 
-        public NavigationItem()
+        protected NavigationItem()
         {
             _enabled = true;
         }

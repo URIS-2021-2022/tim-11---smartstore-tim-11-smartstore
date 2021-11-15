@@ -135,8 +135,6 @@ namespace Smartstore.Core.Content.Media
 
         public Task DeleteAlbumAsync(string albumName, string moveFilesToAlbum)
         {
-            var album = GetAlbumValidated(albumName, true);
-            var destinationAlbum = GetAlbumValidated(moveFilesToAlbum, false);
 
             throw new NotImplementedException();
 

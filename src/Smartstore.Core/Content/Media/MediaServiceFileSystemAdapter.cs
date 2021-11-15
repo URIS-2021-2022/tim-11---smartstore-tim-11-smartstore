@@ -16,7 +16,6 @@ namespace Smartstore.Core.Content.Media
     public partial class MediaServiceFileSystemAdapter : FileSystemBase, IMediaFileSystem
     {
         private readonly IMediaService _mediaService;
-        private readonly IMediaSearcher _mediaSearcher;
         private readonly IFolderService _folderService;
         private readonly MediaHelper _mediaHelper;
         private readonly IMediaStorageProvider _storageProvider;
@@ -32,7 +31,6 @@ namespace Smartstore.Core.Content.Media
             MediaExceptionFactory exceptionFactory)
         {
             _mediaService = mediaService;
-            _mediaSearcher = mediaSearcher;
             _folderService = folderService;
             _mediaHelper = mediaHelper;
             _storageProvider = mediaService.StorageProvider;
@@ -133,7 +131,7 @@ namespace Smartstore.Core.Content.Media
 
         public override async Task<IFile> GetFileAsync(string subpath)
         {
-            var file = await _mediaService.GetFileByPathAsync(subpath, MediaLoadFlags.AsNoTracking);
+            var file = await _mediaService.GetFileByPathAsync(subpath, MediaLoad.AsNoTracking);
             if (file == null)
             {
                 var mediaFile = new MediaFile

@@ -275,10 +275,9 @@ namespace Smartstore.Core.Catalog.Categories
                     await PublishEvent(CategoryTreeChangeReason.StoreMapping);
                 }
             }
-            else if (entity is AclRecord acl)
+            else if ((entity is AclRecord acl)&&(!acl.IsIdle))
             {
-                if (!acl.IsIdle)
-                {
+                
                     if (acl.EntityName == "Product")
                     {
                         await PublishEvent(CategoryTreeChangeReason.ElementCounts);
@@ -289,7 +288,7 @@ namespace Smartstore.Core.Catalog.Categories
                         await _cache.RemoveByPatternAsync(BuildCacheKeyPattern("*", "[^0]*", "*"));
                         await PublishEvent(CategoryTreeChangeReason.Acl);
                     }
-                }
+                
             }
 
             return HookResult.Ok;

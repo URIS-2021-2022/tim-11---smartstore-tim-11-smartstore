@@ -27,7 +27,7 @@ namespace Smartstore.Core.Bootstrapping
 {
     internal class CoreStarter : StarterBase
     {
-        public override int Order => (int)StarterOrdering.Early;
+        public override int Order => StarterOrdering.Early;
 
         public override void ConfigureServices(IServiceCollection services, IApplicationContext appContext)
         {

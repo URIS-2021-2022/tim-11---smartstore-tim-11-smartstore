@@ -41,10 +41,10 @@ namespace Smartstore.Core.Content.Menus
         /// <param name="node">The node to get the state for</param>
         /// <param name="currentPath">The current path/breadcrumb</param>
         /// <returns>
-        ///		<see cref="NodePathState" /> enumeration indicating whether the node is in the current path (<c>Selected</c> or <c>Expanded</c>)
+        ///		<see cref="NodePathStates" /> enumeration indicating whether the node is in the current path (<c>Selected</c> or <c>Expanded</c>)
         ///		and whether it has children (<c>Parent</c>)
         ///	</returns>
-        public static NodePathState GetNodePathState(this TreeNode<MenuItem> node, IEnumerable<TreeNode<MenuItem>> currentPath)
+        public static NodePathStates GetNodePathState(this TreeNode<MenuItem> node, IEnumerable<TreeNode<MenuItem>> currentPath)
         {
             return GetNodePathState(node, currentPath.Select(x => x.Value).ToList());
         }
@@ -55,18 +55,18 @@ namespace Smartstore.Core.Content.Menus
         /// <param name="node">The node to get the state for</param>
         /// <param name="currentPath">The current path/breadcrumb</param>
         /// <returns>
-        ///		<see cref="NodePathState" /> enumeration indicating whether the node is in the current path (<c>Selected</c> or <c>Expanded</c>)
+        ///		<see cref="NodePathStates" /> enumeration indicating whether the node is in the current path (<c>Selected</c> or <c>Expanded</c>)
         ///		and whether it has children (<c>Parent</c>)
         ///	</returns>
-        public static NodePathState GetNodePathState(this TreeNode<MenuItem> node, IList<MenuItem> currentPath)
+        public static NodePathStates GetNodePathState(this TreeNode<MenuItem> node, IList<MenuItem> currentPath)
         {
             Guard.NotNull(currentPath, nameof(currentPath));
 
-            var state = NodePathState.Unknown;
+            var state = NodePathStates.None;
 
             if (node.HasChildren)
             {
-                state |= NodePathState.Parent;
+                state |= NodePathStates.Parent;
             }
 
             var lastInPath = currentPath.LastOrDefault();
@@ -75,7 +75,7 @@ namespace Smartstore.Core.Content.Menus
             {
                 if (node.Value.Equals(lastInPath))
                 {
-                    state |= NodePathState.Selected;
+                    state |= NodePathStates.Selected;
                 }
                 else
                 {
@@ -83,7 +83,7 @@ namespace Smartstore.Core.Content.Menus
                     {
                         if (currentPath[node.Depth - 1].Equals(node.Value))
                         {
-                            state |= NodePathState.Expanded;
+                            state |= NodePathStates.Expanded;
                         }
                     }
                 }

@@ -32,7 +32,7 @@
                 var itemUrl = item.GenerateUrl(this.ViewContext);
 
                 var attrs = item.GetCombinedAttributes();
-                attrs.PrependCssClass("list-group-item list-group-item-action menu-link" + ((itemState & NodePathState.Selected) == NodePathState.Selected ? " active" : ""));
+                attrs.PrependCssClass("list-group-item list-group-item-action menu-link" + ((itemState & NodePathStates.Selected) == NodePathStates.Selected ? " active" : ""));
 
                 <a href="@itemUrl" attrs="attrs">
                     @if (hasIcons)

@@ -64,9 +64,9 @@
         }
 
         var badgeClasses = "";
-        if (Model.PriceDisplayStyle == PriceDisplayStyle.BadgeAll || (Model.PriceDisplayStyle == PriceDisplayStyle.BadgeFreeProductsOnly && priceModel.Price == 0))
+        if (Model.PriceDisplayStyle == PriceDisplayStyles.BadgeAll || (Model.PriceDisplayStyle == PriceDisplayStyles.BadgeFreeProductsOnly && priceModel.Price == 0))
         {
-            badgeClasses = Model.PriceDisplayStyle == PriceDisplayStyle.BadgeAll && priceModel.SavingAmount > 0 ? "text-danger" : "text-success";
+            badgeClasses = Model.PriceDisplayStyle == PriceDisplayStyles.BadgeAll && priceModel.SavingAmount > 0 ? "text-danger" : "text-success";
         }
 
         <!-- Current price -->
